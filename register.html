@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANON RP - إنشاء حساب</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#08090d;
+    color:white;
+    font-family:Arial,Tahoma,sans-serif;
+}
+
+.box{
+    width:90%;
+    max-width:450px;
+    margin:60px auto;
+    padding:30px;
+    background:#111217;
+    border:1px solid #3d131b;
+    border-radius:22px;
+    text-align:center;
+}
+
+h1{
+    font-size:35px;
+    margin-bottom:5px;
+}
+
+h1 span{
+    color:#ef233c;
+}
+
+p{
+    color:#aaa;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:8px 0;
+    background:#0b0c10;
+    color:white;
+    border:1px solid #444;
+    border-radius:10px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    background:#ef233c;
+    color:white;
+    border:0;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#d91d32;
+}
+
+a{
+    color:#ef233c;
+    text-decoration:none;
+}
+
+#message{
+    margin-top:15px;
+    color:#25d366;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>ANON <span>RP</span></h1>
+
+<h2>إنشاء حساب</h2>
+
+<p>أنشئ حسابك في ANON RP</p>
+
+<input type="text" id="username" placeholder="اسم المستخدم">
+
+<input type="text" id="gameName" placeholder="اسمك داخل اللعبة">
+
+<input type="text" id="discord" placeholder="اسم Discord">
+
+<input type="email" id="email" placeholder="البريد الإلكتروني">
+
+<input type="password" id="password" placeholder="كلمة المرور">
+
+<input type="password" id="confirm" placeholder="تأكيد كلمة المرور">
+
+<button onclick="register()">إنشاء الحساب</button>
+
+<div id="message"></div>
+
+<p>
+لديك حساب بالفعل؟
+<a href="login.html">تسجيل الدخول</a>
+</p>
+
+</div>
+
+<script>
+
+function register(){
+
+let username = document.getElementById("username").value;
+let gameName = document.getElementById("gameName").value;
+let discord = document.getElementById("discord").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+let confirm = document.getElementById("confirm").value;
+
+if(!username || !gameName || !discord || !email || !password || !confirm){
+    document.getElementById("message").style.color="#ef233c";
+    document.getElementById("message").innerText="من فضلك املأ جميع البيانات";
+    return;
+}
+
+if(password !== confirm){
+    document.getElementById("message").style.color="#ef233c";
+    document.getElementById("message").innerText="كلمتا المرور غير متطابقتين";
+    return;
+}
+
+document.getElementById("message").style.color="#25d366";
+document.getElementById("message").innerText="تم إنشاء الحساب بنجاح!";
+
+}
+
+</script>
+
+</body>
+</html>

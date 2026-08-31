@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANON RP - حسابي</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#08090d;
+    color:white;
+    min-height:100vh;
+}
+
+.container{
+    width:90%;
+    max-width:600px;
+    margin:70px auto;
+}
+
+.box{
+    background:#111217;
+    border:1px solid #3a151d;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+h1 span{
+    color:#ef233c;
+}
+
+.info{
+    background:#22242c;
+    margin:15px 0;
+    padding:15px;
+    border-radius:10px;
+    text-align:right;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:10px;
+    background:#ef233c;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    margin-top:15px;
+    cursor:pointer;
+}
+
+.logout{
+    background:#33353d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="box">
+
+<h1>ANON <span>RP</span></h1>
+
+<h2>👤 حسابي</h2>
+
+<div class="info">
+<strong>اسم المستخدم:</strong>
+<span id="username"></span>
+</div>
+
+<div class="info">
+<strong>البريد الإلكتروني:</strong>
+<span id="email"></span>
+</div>
+
+<div class="info">
+<strong>Discord:</strong>
+<span id="discord"></span>
+</div>
+
+<button onclick="location.href='index.html'">
+الصفحة الرئيسية
+</button>
+
+<button class="logout" onclick="logout()">
+تسجيل الخروج
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const username = localStorage.getItem("anon_username");
+const email = localStorage.getItem("anon_email");
+const discord = localStorage.getItem("anon_discord");
+
+if(!username){
+    window.location.href = "login.html";
+}
+
+document.getElementById("username").textContent = username || "";
+document.getElementById("email").textContent = email || "";
+document.getElementById("discord").textContent = discord || "";
+
+function logout(){
+
+    localStorage.removeItem("anon_logged_in");
+
+    window.location.href = "login.html";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANON RP</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Tahoma,sans-serif;
+    background:#08090d;
+    color:white;
+}
+
+header{
+    background:#101116;
+    border-bottom:1px solid #35121a;
+    padding:20px;
+}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    margin-left:auto;
+}
+
+.logo span{
+    color:#ef233c;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.login{
+    background:#ef233c;
+    padding:12px 20px;
+    border-radius:10px;
+}
+
+.hero{
+    max-width:1000px;
+    margin:100px auto;
+    padding:20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ef233c;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+button{
+    border:0;
+    padding:15px 25px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px;
+}
+
+.red{
+    background:#ef233c;
+    color:white;
+}
+
+.dark{
+    background:#22242c;
+    color:white;
+}
+
+.cards{
+    max-width:1000px;
+    margin:30px auto 80px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#111217;
+    border:1px solid #3a151d;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.card .icon{
+    font-size:40px;
+}
+
+.card h2{
+    margin:15px 0;
+}
+
+.card p{
+    color:#aaa;
+    line-height:1.7;
+}
+
+footer{
+    text-align:center;
+    color:#777;
+    padding:30px;
+    border-top:1px solid #222;
+}
+
+@media(max-width:700px){
+
+.nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.logo{
+    width:100%;
+    text-align:center;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+ANON <span>RP</span>
+</div>
+
+<a href="#">الرئيسية</a>
+<a href="#rules">القوانين</a>
+<a href="#apply">التقديم</a>
+
+<a class="login" href="#">
+تسجيل الدخول
+</a>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
+أهلاً بك في
+<span>ANON RP</span>
+</h1>
+
+<p>
+عالم جديد من الرول بلاي يبدأ من هنا
+<br>
+كوّن شخصيتك، اصنع قصتك، وكن جزءًا من مجتمع ANON RP.
+</p>
+
+<div class="buttons">
+
+<button class="red">
+إنشاء حساب
+</button>
+
+<button class="dark">
+دخول السيرفر
+</button>
+
+</div>
+
+</section>
+
+
+<section class="cards">
+
+<div class="card" id="rules">
+
+<div class="icon">📜</div>
+
+<h2>القوانين</h2>
+
+<p>
+تعرف على قوانين ANON RP
+والعب بطريقة عادلة ومحترمة.
+</p>
+
+</div>
+
+
+<div class="card" id="apply">
+
+<div class="icon">📝</div>
+
+<h2>التقديمات</h2>
+
+<p>
+قدم على الوظائف والإدارات
+داخل السيرفر.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💬</div>
+
+<h2>Discord</h2>
+
+<p>
+انضم إلى مجتمع ANON RP
+وتابع آخر الأخبار.
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 ANON RP
+<br>
+جميع الحقوق محفوظة
+
+</footer>
+
+</body>
+  </html>

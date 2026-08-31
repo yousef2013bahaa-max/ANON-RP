@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ANON RP - حسابي</title>
 
 <style>
@@ -12,13 +11,12 @@ body{
     font-family:Arial,Tahoma,sans-serif;
     background:#08090d;
     color:white;
-    min-height:100vh;
 }
 
 .container{
-    width:90%;
     max-width:600px;
-    margin:70px auto;
+    margin:60px auto;
+    padding:20px;
 }
 
 .box{
@@ -26,6 +24,9 @@ body{
     border:1px solid #3a151d;
     border-radius:20px;
     padding:30px;
+}
+
+h1{
     text-align:center;
 }
 
@@ -35,25 +36,33 @@ h1 span{
 
 .info{
     background:#22242c;
-    margin:15px 0;
     padding:15px;
+    margin:12px 0;
     border-radius:10px;
-    text-align:right;
+}
+
+.label{
+    color:#aaa;
+    display:block;
+    margin-bottom:6px;
 }
 
 button{
     width:100%;
     padding:14px;
+    margin-top:12px;
     border:0;
     border-radius:10px;
-    background:#ef233c;
     color:white;
-    font-size:17px;
+    font-size:16px;
     font-weight:bold;
-    margin-top:15px;
     cursor:pointer;
 }
-} 
+
+.home{
+    background:#ef233c;
+}
+
 .logout{
     background:#33353d;
 }
@@ -71,21 +80,21 @@ button{
 <h2>👤 حسابي</h2>
 
 <div class="info">
-<strong>اسم المستخدم:</strong>
-<span id="username"></span>
+<span class="label">اسم المستخدم</span>
+<span id="username">---</span>
 </div>
 
 <div class="info">
-<strong>البريد الإلكتروني:</strong>
-<span id="email"></span>
+<span class="label">البريد الإلكتروني</span>
+<span id="email">---</span>
 </div>
 
 <div class="info">
-<strong>Discord:</strong>
-<span id="discord"></span>
+<span class="label">Discord</span>
+<span id="discord">---</span>
 </div>
 
-<button onclick="location.href='index.html'">
+<button class="home" onclick="location.href='index.html'">
 الصفحة الرئيسية
 </button>
 
@@ -99,30 +108,26 @@ button{
 
 <script>
 
-const username = localStorage.getItem("anon_username");
-const email = localStorage.getItem("anon_email");
-const discord = localStorage.getItem("anon_discord");
 const loggedIn = localStorage.getItem("anon_logged_in");
 
-if(!username || loggedIn !== "true"){
+if(loggedIn !== "true"){
     window.location.href = "login.html";
 }
 
-document.getElementById("username").textContent = username || "";
-document.getElementById("email").textContent = email || "";
-document.getElementById("discord").textContent = discord || "";
+document.getElementById("username").textContent =
+    localStorage.getItem("anon_username") || "---";
 
+document.getElementById("email").textContent =
+    localStorage.getItem("anon_email") || "---";
 
-document.getElementById("username").textContent = username || "";
-document.getElementById("email").textContent = email || "";
-document.getElementById("discord").textContent = discord || "";
+document.getElementById("discord").textContent =
+    localStorage.getItem("anon_discord") || "---";
 
 function logout(){
 
     localStorage.removeItem("anon_logged_in");
 
     window.location.href = "login.html";
-
 }
 
 </script>

@@ -22,8 +22,9 @@ body{
     width:90%;
     max-width:430px;
     background:#111217;
-    padding:30px;
+    border:1px solid #3a151d;
     border-radius:20px;
+    padding:30px;
     text-align:center;
 }
 
@@ -52,9 +53,10 @@ button{
     color:white;
     font-size:17px;
     font-weight:bold;
+    cursor:pointer;
 }
 
-#message{
+.message{
     margin-top:15px;
 }
 </style>
@@ -66,59 +68,78 @@ button{
 
 <h1>ANON <span>RP</span></h1>
 
-<h2>تسجيل الدخول</h2>
+<h2>🔐 تسجيل الدخول</h2>
 
-<input type="text" id="username" placeholder="اسم المستخدم">
+<input
+    type="text"
+    id="username"
+    placeholder="اسم المستخدم"
+>
 
-<input type="password" id="password" placeholder="كلمة المرور">
+<input
+    type="password"
+    id="password"
+    placeholder="كلمة المرور"
+>
 
-<button onclick="login()">تسجيل الدخول</button>
+<button onclick="login()">
+تسجيل الدخول
+</button>
 
-<p id="message"></p>
+<p class="message" id="message"></p>
 
 </div>
 
 <script>
+
 function login(){
 
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value;
-    const message = document.getElementById("message");
+    const username =
+        document.getElementById("username").value.trim();
 
-    const savedUsername = localStorage.getItem("anon_username");
-    const savedPassword = localStorage.getItem("anon_password");
+    const password =
+        document.getElementById("password").value;
+
+    const message =
+        document.getElementById("message");
+
+    const savedUsername =
+        localStorage.getItem("anon_username");
+
+    const savedPassword =
+        localStorage.getItem("anon_password");
 
     if(username === "" || password === ""){
-        message.textContent = "⚠️ اكتب اسم المستخدم وكلمة المرور";
+        message.textContent =
+            "⚠️ اكتب اسم المستخدم وكلمة المرور";
         return;
     }
 
-    if(username === savedUsername && password === savedPassword){
+    if(
+        username === savedUsername &&
+        password === savedPassword
+    ){
 
-    localStorage.setItem("anon_logged_in", "true");
+        localStorage.setItem(
+            "anon_logged_in",
+            "true"
+        );
 
-    message.textContent = "✅ تم تسجيل الدخول بنجاح!";
-
-    setTimeout(function(){
-        window.location.href = "index.html";
-    }, 1000);
-
-}else{
-    message.textContent = "❌ اسم المستخدم أو كلمة المرور غير صحيحة";
-    }
-
-        message.textContent = "✅ تم تسجيل الدخول بنجاح!";
+        message.textContent =
+            "✅ تم تسجيل الدخول بنجاح!";
 
         setTimeout(function(){
-            window.location.href = "index.html";
-        }, 1000);
+            window.location.href =
+                "index.html";
+        },1000);
 
     }else{
 
-        message.textContent = "❌ اسم المستخدم أو كلمة المرور غير صحيحة";
-
+        message.textContent =
+            "❌ اسم المستخدم أو كلمة المرور غير صحيحة";
     }
 }
+
 </script>
 
 </body>

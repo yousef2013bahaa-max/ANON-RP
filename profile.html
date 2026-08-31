@@ -108,7 +108,7 @@ const loggedIn = localStorage.getItem("anon_logged_in");
 if(!username || loggedIn !== "true"){
     window.location.href = "login.html";
 }
-}
+
 
 document.getElementById("username").textContent = username || "";
 document.getElementById("email").textContent = email || "";

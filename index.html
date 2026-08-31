@@ -271,5 +271,19 @@ if(username){
     document.getElementById("profileLink").style.display = "inline-block";
 }
 </script>
+    <script>
+const loggedIn = localStorage.getItem("anon_logged_in");
+
+const loginLink = document.getElementById("loginLink");
+const profileLink = document.getElementById("profileLink");
+
+if (loggedIn === "true") {
+    if (loginLink) loginLink.style.display = "none";
+    if (profileLink) profileLink.style.display = "inline-block";
+} else {
+    if (loginLink) loginLink.style.display = "inline-block";
+    if (profileLink) profileLink.style.display = "none";
+}
+    </script>
 </body>
 </html>

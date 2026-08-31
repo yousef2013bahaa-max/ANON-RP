@@ -1,102 +1,113 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ANON RP - تسجيل الدخول</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0f;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<title>ANON RP - تسجيل الدخول</title>
 
-    .box {
-      width: 90%;
-      max-width: 400px;
-      background: #15151d;
-      padding: 30px;
-      border-radius: 15px;
-      box-sizing: border-box;
-      box-shadow: 0 0 25px #000;
-      text-align: center;
-    }
+<style>
+body{
+    margin:0;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#08090d;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
 
-    h1 {
-      margin-bottom: 25px;
-    }
+.box{
+    width:90%;
+    max-width:430px;
+    background:#111217;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 8px;
-      box-sizing: border-box;
-      background: #24242e;
-      color: white;
-    }
+h1 span{
+    color:#ef233c;
+}
 
-    button {
-      width: 100%;
-      padding: 14px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 8px;
-      background: #6c2cff;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+input{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:0;
+    border-radius:10px;
+    background:#22242c;
+    color:white;
+    box-sizing:border-box;
+}
 
-    button:hover {
-      background: #5420cc;
-    }
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:0;
+    border-radius:10px;
+    background:#ef233c;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+}
 
-    #message {
-      margin-top: 15px;
-    }
-  </style>
+#message{
+    margin-top:15px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="box">
-    <h1>🎭 ANON RP</h1>
+<div class="box">
 
-    <input type="text" id="username" placeholder="اسم المستخدم">
-    <input type="password" id="password" placeholder="كلمة المرور">
+<h1>ANON <span>RP</span></h1>
 
-    <button onclick="login()">تسجيل الدخول</button>
+<h2>تسجيل الدخول</h2>
 
-    <p id="message"></p>
-  </div>
+<input type="text" id="username" placeholder="اسم المستخدم">
 
-  <script>
-    function login() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      const message = document.getElementById("message");
+<input type="password" id="password" placeholder="كلمة المرور">
 
-      if (username === "" || password === "") {
+<button onclick="login()">تسجيل الدخول</button>
+
+<p id="message"></p>
+
+</div>
+
+<script>
+function login(){
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    const savedUsername = localStorage.getItem("anon_username");
+    const savedPassword = localStorage.getItem("anon_password");
+
+    if(username === "" || password === ""){
         message.textContent = "⚠️ اكتب اسم المستخدم وكلمة المرور";
         return;
-      }
-
-      message.textContent = "✅ تم تسجيل الدخول بنجاح!";
-
-setTimeout(() => {
-  window.location.href = "index.html";
-}, 1000);
     }
-  </script>
+
+    if(username === savedUsername && password === savedPassword){
+
+        message.textContent = "✅ تم تسجيل الدخول بنجاح!";
+
+        setTimeout(function(){
+            window.location.href = "index.html";
+        }, 1000);
+
+    }else{
+
+        message.textContent = "❌ اسم المستخدم أو كلمة المرور غير صحيحة";
+
+    }
+}
+</script>
 
 </body>
 </html>

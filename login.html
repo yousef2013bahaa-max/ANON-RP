@@ -95,6 +95,18 @@ function login(){
 
     if(username === savedUsername && password === savedPassword){
 
+    localStorage.setItem("anon_logged_in", "true");
+
+    message.textContent = "✅ تم تسجيل الدخول بنجاح!";
+
+    setTimeout(function(){
+        window.location.href = "index.html";
+    }, 1000);
+
+}else{
+    message.textContent = "❌ اسم المستخدم أو كلمة المرور غير صحيحة";
+    }
+
         message.textContent = "✅ تم تسجيل الدخول بنجاح!";
 
         setTimeout(function(){

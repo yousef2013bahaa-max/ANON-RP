@@ -263,6 +263,13 @@ ANON <span>RP</span>
 جميع الحقوق محفوظة
 
 </footer>
+<script>
+const username = localStorage.getItem("anon_username");
 
+if(username){
+    document.getElementById("loginLink").style.display = "none";
+    document.getElementById("profileLink").style.display = "inline-block";
+}
+</script>
 </body>
 </html>

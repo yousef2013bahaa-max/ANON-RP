@@ -3,15 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>تسجيل الدخول | ANON RP</title>
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,Tahoma,sans-serif;
@@ -40,9 +35,7 @@ font-weight:bold;
 margin-bottom:25px;
 }
 
-.logo span{
-color:#ef233c;
-}
+.logo span{color:#ef233c}
 
 h1{
 text-align:center;
@@ -68,18 +61,17 @@ outline:none;
 }
 
 button{
-width:100%;
 display:block;
+width:100%;
 margin-top:25px;
 padding:15px;
 background:#ef233c;
-color:#ffffff;
+color:white;
 border:0;
 border-radius:10px;
 font-size:18px;
 font-weight:bold;
 cursor:pointer;
-text-align:center;
 }
 
 .message{
@@ -110,7 +102,7 @@ ANON <span>RP</span>
 
 <form id="loginForm">
 
-<label for="email">البريد الإلكتروني</label>
+<label>البريد الإلكتروني</label>
 
 <input
 type="email"
@@ -119,7 +111,7 @@ placeholder="اكتب البريد الإلكتروني"
 required
 >
 
-<label for="password">كلمة المرور</label>
+<label>كلمة المرور</label>
 
 <input
 type="password"
@@ -128,10 +120,7 @@ placeholder="اكتب كلمة المرور"
 required
 >
 
-<button
-type="submit"
-style="display:block;width:100%;background:#ef233c;color:white;padding:15px;border:0;border-radius:10px;font-size:18px;font-weight:bold;"
->
+<button type="submit">
 تسجيل الدخول
 </button>
 
@@ -155,26 +144,88 @@ const email=document.getElementById("email").value.trim();
 const password=document.getElementById("password").value;
 const message=document.getElementById("message");
 
+let account=null;
+
+/* الحساب بالطريقة الجديدة */
 const savedAccount=localStorage.getItem("anon_account");
 
-if(!savedAccount){
+if(savedAccount){
 
-message.textContent="لا يوجد حساب. أنشئ حساب أولاً.";
+try{
+account=JSON.parse(savedAccount);
+}catch(error){
+account=null;
+}
+
+}
+
+/* لو الحساب القديم محفوظ كبيانات منفصلة */
+if(!account){
+
+const oldEmail=localStorage.getItem("anon_email");
+const oldPassword=localStorage.getItem("anon_password");
+const oldUsername=localStorage.getItem("anon_username");
+const oldDiscord=localStorage.getItem("anon_discord");
+
+if(oldEmail && oldPassword){
+
+account={
+username:oldUsername || "",
+discord:oldDiscord || "",
+email:oldEmail,
+password:oldPassword
+};
+
+}
+
+}
+
+/* مفيش حساب */
+if(!account){
+
+message.textContent="لا يوجد حساب محفوظ على هذا المتصفح ❌";
 return;
 
 }
 
-const account=JSON.parse(savedAccount);
+/* التحقق */
+if(
+email.toLowerCase()===account.email.toLowerCase() &&
+password===account.password
+){
 
-if(email===account.email && password===account.password){
+/* حفظ الحساب بالطريقة الموحدة */
+localStorage.setItem(
+"anon_account",
+JSON.stringify(account)
+);
 
-localStorage.setItem("anon_logged_in","true");
-localStorage.setItem("anon_username",account.username);
+localStorage.setItem(
+"anon_username",
+account.username
+);
+
+localStorage.setItem(
+"anon_email",
+account.email
+);
+
+localStorage.setItem(
+"anon_discord",
+account.discord || ""
+);
+
+localStorage.setItem(
+"anon_logged_in",
+"true"
+);
 
 message.textContent="تم تسجيل الدخول بنجاح ✅";
 
 setTimeout(function(){
+
 window.location.href="profile.html";
+
 },800);
 
 }else{

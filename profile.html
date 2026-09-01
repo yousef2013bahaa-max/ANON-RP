@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
 <title>حسابي | ANON RP</title>
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
@@ -58,7 +56,7 @@ font-weight:bold;
 
 .container{
 width:92%;
-max-width:700px;
+max-width:850px;
 margin:45px auto;
 }
 
@@ -99,12 +97,37 @@ justify-content:center;
 font-size:40px;
 }
 
+.player-id{
+text-align:center;
+background:#08090d;
+border:1px solid #3a151d;
+border-radius:12px;
+padding:15px;
+margin-bottom:25px;
+}
+
+.player-id small{
+display:block;
+color:#888;
+margin-bottom:4px;
+}
+
+.player-id strong{
+font-size:25px;
+color:#ef233c;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
 .info-box{
 background:#08090d;
 border:1px solid #292a30;
 border-radius:12px;
 padding:15px;
-margin-bottom:14px;
 }
 
 .info-label{
@@ -134,6 +157,37 @@ outline:none;
 
 input:focus{
 border-color:#ef233c;
+}
+
+.section{
+margin-top:25px;
+}
+
+.section-title{
+font-size:22px;
+margin-bottom:12px;
+}
+
+.apply-box{
+background:#08090d;
+border:1px solid #292a30;
+border-radius:12px;
+padding:20px;
+}
+
+.apply-box p{
+color:#999;
+margin-bottom:15px;
+}
+
+.apply-btn{
+display:inline-block;
+background:#ef233c;
+color:#fff;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
 }
 
 .actions{
@@ -208,12 +262,15 @@ font-size:30px;
 padding:20px;
 }
 
+.info-grid{
+grid-template-columns:1fr;
+}
+
 .actions{
 flex-direction:column;
 }
 
 }
-
 </style>
 </head>
 
@@ -245,7 +302,7 @@ ANON <span>RP</span>
 </h1>
 
 <p>
-إدارة بيانات حسابك في ANON RP
+لوحة اللاعب الخاصة بك في ANON RP
 </p>
 
 </div>
@@ -256,6 +313,20 @@ ANON <span>RP</span>
 <div class="avatar">
 👤
 </div>
+
+
+<div class="player-id">
+
+<small>ID اللاعب</small>
+
+<strong id="playerId">
+0000
+</strong>
+
+</div>
+
+
+<div class="info-grid">
 
 
 <div class="info-box">
@@ -306,13 +377,61 @@ placeholder="البريد الإلكتروني"
 <div class="info-box">
 
 <span class="info-label">
-حالة الحساب
+الوظيفة
 </span>
 
 <div class="info-value">
-<span style="color:#42d66b;">
-● مسجل الدخول
+مواطن
+</div>
+
+</div>
+
+
+<div class="info-box">
+
+<span class="info-label">
+حالة الحساب
 </span>
+
+<div class="info-value" style="color:#42d66b;">
+● مسجل الدخول
+</div>
+
+</div>
+
+
+<div class="info-box">
+
+<span class="info-label">
+السيرفر
+</span>
+
+<div class="info-value">
+ANON RP
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+📋 التقديمات
+</div>
+
+<div class="apply-box">
+
+<p>
+هل تريد الانضمام إلى فريق ANON RP أو التقديم على وظيفة؟
+</p>
+
+<a class="apply-btn" href="index.html#apply">
+عرض التقديمات
+</a>
+
 </div>
 
 </div>
@@ -404,6 +523,29 @@ localStorage.getItem("anon_password") || ""
 }
 
 
+/* إنشاء ID للاعب مرة واحدة */
+
+let playerId =
+localStorage.getItem("anon_player_id");
+
+
+if(!playerId){
+
+playerId =
+String(Math.floor(1000 + Math.random() * 9000));
+
+localStorage.setItem(
+"anon_player_id",
+playerId
+);
+
+}
+
+
+document.getElementById("playerId").textContent =
+playerId;
+
+
 /* عرض البيانات */
 
 document.getElementById("username").value =
@@ -435,6 +577,8 @@ document.getElementById("message");
 
 if(username.length < 3){
 
+message.style.color="#ef233c";
+
 message.textContent =
 "اسم المستخدم يجب أن يكون 3 أحرف على الأقل ❌";
 
@@ -444,6 +588,8 @@ return;
 
 
 if(!email){
+
+message.style.color="#ef233c";
 
 message.textContent =
 "اكتب البريد الإلكتروني ❌";
@@ -460,7 +606,7 @@ account.discord = discord;
 account.email = email;
 
 
-/* حفظ الحساب */
+/* حفظ البيانات */
 
 localStorage.setItem(
 "anon_account",
@@ -511,5 +657,4 @@ window.location.href="index.html";
 </script>
 
 </body>
-
 </html>

@@ -1,188 +1,159 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التقديم | ANON-RP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>عرض التقديمات | ANON-RP</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #0b0b0f;
-      color: white;
-      padding: 20px;
-    }
+<style>
+body{
+  margin:0;
+  background:#0b0b0f;
+  color:white;
+  font-family:Arial,sans-serif;
+  padding:20px;
+}
 
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #15151c;
-      border-radius: 18px;
-      padding: 25px;
-    }
+.container{
+  max-width:700px;
+  margin:auto;
+}
 
-    h1 {
-      text-align: center;
-    }
+h1{
+  text-align:center;
+}
 
-    label {
-      display: block;
-      margin: 15px 0 7px;
-      font-weight: bold;
-    }
+.card{
+  background:#15151c;
+  border:1px solid #333;
+  border-radius:15px;
+  padding:20px;
+  margin:15px 0;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 13px;
-      background: #0e0e13;
-      color: white;
-      border: 1px solid #333;
-      border-radius: 10px;
-      font-size: 15px;
-    }
+#status{
+  text-align:center;
+  color:#aaa;
+}
 
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
+a{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  color:#aaa;
+  text-decoration:none;
+}
+</style>
 
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 14px;
-      border: 0;
-      border-radius: 10px;
-      background: white;
-      color: black;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    #message {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .back {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      color: #aaa;
-    }
-  </style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>📋 التقديم في ANON-RP</h1>
+<h1>📋 تقديمات ANON-RP</h1>
 
-  <form id="applyForm">
+<div id="status">
+جاري تحميل التقديمات...
+</div>
 
-    <label>الاسم داخل السيرفر</label>
-    <input id="name" required>
+<div id="list"></div>
 
-    <label>العمر</label>
-    <input id="age" type="number" required>
-
-    <label>Discord ID</label>
-    <input id="discord" required>
-
-    <label>نوع التقديم</label>
-    <select id="type" required>
-      <option value="">اختر نوع التقديم</option>
-      <option value="إدارة">إدارة</option>
-      <option value="مراقب">مراقب</option>
-      <option value="ستاف">ستاف</option>
-      <option value="عصابة">عصابة</option>
-      <option value="أخرى">أخرى</option>
-    </select>
-
-    <label>سبب التقديم</label>
-    <textarea id="reason" required></textarea>
-
-    <label>الخبرات</label>
-    <textarea id="experience" required></textarea>
-
-    <label>لماذا نختارك؟</label>
-    <textarea id="why" required></textarea>
-
-    <button type="submit">🚀 إرسال التقديم</button>
-
-  </form>
-
-  <div id="message"></div>
-
-  <a class="back" href="profile.html">← العودة إلى حسابي</a>
+<a href="profile.html">
+← العودة إلى حسابي
+</a>
 
 </div>
 
+
 <script>
 
-const SUPABASE_URL = "https://zqpemyoukxseyhgnrzja.supabase.co/rest/v1/";
-const SUPABASE_KEY = "sb_publishable_mUGB0FZrWlVpxHspDlq8SQ_cIu3Pmcr";
+const SUPABASE_URL = "https://zqpemyoukxseyhgnrzja.supabase.co";
 
-document.getElementById("applyForm").addEventListener("submit", async function(e) {
+const SUPABASE_KEY = "sb_publishable_clUVX-Bp8tXeyrrhyaXQQQ_XIMlkBHz";
 
-  e.preventDefault();
 
-  const message = document.getElementById("message");
+async function getApplications(){
 
-  message.textContent = "جاري إرسال التقديم...";
+try{
 
-  const application = {
-    name: document.getElementById("name").value,
-    age: Number(document.getElementById("age").value),
-    discord: document.getElementById("discord").value,
-    type: document.getElementById("type").value,
-    reason: document.getElementById("reason").value,
-    experience: document.getElementById("experience").value,
-    why: document.getElementById("why").value
-  };
+let response = await fetch(
+SUPABASE_URL + "/rest/v1/applications?select=*",
+{
+method:"GET",
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":"Bearer "+SUPABASE_KEY
+}
+}
+);
 
-  try {
 
-    const response = await fetch(
-      SUPABASE_URL + "/rest/v1/applications",
-      {
-        method: "POST",
+let data = await response.json();
 
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": SUPABASE_KEY,
-          "Authorization": "Bearer " + SUPABASE_KEY,
-          "Prefer": "return=minimal"
-        },
 
-        body: JSON.stringify(application)
-      }
-    );
+document.getElementById("status").style.display="none";
 
-    if (!response.ok) {
-      throw new Error("فشل إرسال الطلب");
-    }
 
-    message.textContent = "✅ تم إرسال التقديم بنجاح!";
+if(data.length === 0){
 
-    document.getElementById("applyForm").reset();
+document.getElementById("list").innerHTML =
+`
+<div class="card">
+لا توجد تقديمات حاليا
+</div>
+`;
 
-  } catch (error) {
+return;
 
-    console.error(error);
+}
 
-    message.textContent =
-      "❌ حصل خطأ أثناء الإرسال. تأكد من إعدادات Supabase.";
 
-  }
+data.forEach((app)=>{
+
+document.getElementById("list").innerHTML +=
+
+`
+<div class="card">
+
+<h2>📄 طلب تقديم</h2>
+
+<p>👤 الاسم: ${app.name}</p>
+
+<p>🎂 العمر: ${app.age}</p>
+
+<p>💬 Discord: ${app.discord}</p>
+
+<p>📌 النوع: ${app.type}</p>
+
+<p>📝 السبب: ${app.reason}</p>
+
+<p>⭐ الخبرات: ${app.experience}</p>
+
+<p>❓ لماذا نختارك: ${app.why}</p>
+
+</div>
+`;
 
 });
+
+
+}
+
+catch(error){
+
+document.getElementById("status").innerHTML =
+"❌ خطأ في تحميل التقديمات";
+
+console.log(error);
+
+}
+
+}
+
+
+getApplications();
 
 </script>
 

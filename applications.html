@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التقديمات | ANON-RP</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0b0b0f;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .application {
+      background: #15151c;
+      border: 1px solid #292934;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 15px 0;
+    }
+
+    .application p {
+      margin: 10px 0;
+    }
+
+    .empty {
+      text-align: center;
+      color: #aaa;
+      margin-top: 50px;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      color: #aaa;
+      text-decoration: none;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>📋 تقديمات ANON-RP</h1>
+
+    <div id="applications"></div>
+
+    <a href="profile.html" class="back">
+      ← العودة إلى حسابي
+    </a>
+
+  </div>
+
+  <script>
+    const box = document.getElementById("applications");
+
+    const applications =
+      JSON.parse(localStorage.getItem("anon_rp_applications")) || [];
+
+    if (applications.length === 0) {
+
+      box.innerHTML = `
+        <div class="empty">
+          لا توجد تقديمات حتى الآن.
+        </div>
+      `;
+
+    } else {
+
+      applications.reverse().forEach((app, index) => {
+
+        box.innerHTML += `
+          <div class="application">
+
+            <h2>📄 تقديم رقم ${index + 1}</h2>
+
+            <p><strong>الاسم:</strong> ${app.name}</p>
+
+            <p><strong>العمر:</strong> ${app.age}</p>
+
+            <p><strong>Discord ID:</strong> ${app.discord}</p>
+
+            <p><strong>نوع التقديم:</strong> ${app.type}</p>
+
+            <p><strong>سبب التقديم:</strong> ${app.reason}</p>
+
+            <p><strong>الخبرات:</strong> ${app.experience}</p>
+
+            <p><strong>لماذا نختارك:</strong> ${app.why}</p>
+
+            <p><strong>التاريخ:</strong> ${app.date}</p>
+
+          </div>
+        `;
+
+      });
+
+    }
+  </script>
+
+</body>
+</html>

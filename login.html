@@ -1,186 +1,191 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول | ANON RP</title><style>
+
+<title>تسجيل الدخول | ANON RP</title>
+
+<style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-    font-family:Arial,Tahoma,sans-serif;
-    background:#07080c;
-    color:white;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+font-family:Arial,Tahoma,sans-serif;
+background:#07080c;
+color:white;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
 .box{
-    width:100%;
-    max-width:430px;
-    background:#111217;
-    border:1px solid #3a151d;
-    border-radius:20px;
-    padding:30px;
+width:100%;
+max-width:430px;
+background:#111217;
+border:1px solid #3a151d;
+border-radius:20px;
+padding:30px;
 }
 
 .logo{
-    text-align:center;
-    font-size:30px;
-    font-weight:bold;
-    margin-bottom:25px;
+text-align:center;
+font-size:30px;
+font-weight:bold;
+margin-bottom:25px;
 }
 
 .logo span{
-    color:#ef233c;
+color:#ef233c;
 }
 
 h1{
-    text-align:center;
-    font-size:24px;
-    margin-bottom:20px;
+text-align:center;
+font-size:30px;
+margin-bottom:30px;
 }
 
 label{
-    display:block;
-    margin:15px 0 7px;
-    font-weight:bold;
+display:block;
+margin:15px 0 7px;
+font-weight:bold;
 }
 
 input{
-    width:100%;
-    padding:14px;
-    border:1px solid #333;
-    border-radius:10px;
-    background:#08090d;
-    color:white;
-    font-size:16px;
-    outline:none;
-}
-
-input:focus{
-    border-color:#ef233c;
+width:100%;
+padding:14px;
+border:1px solid #333;
+border-radius:10px;
+background:#08090d;
+color:white;
+font-size:16px;
+outline:none;
 }
 
 button{
-    display:block;
-    width:100%;
-    margin-top:25px;
-    padding:15px;
-    border:0;
-    border-radius:10px;
-    background:#ef233c;
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:active{
-    transform:scale(.98);
+width:100%;
+display:block;
+margin-top:25px;
+padding:15px;
+background:#ef233c;
+color:#ffffff;
+border:0;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+text-align:center;
 }
 
 .message{
-    text-align:center;
-    margin-top:15px;
-    color:#aaa;
+text-align:center;
+margin-top:15px;
+color:#aaa;
 }
 
 .register{
-    display:block;
-    text-align:center;
-    margin-top:20px;
-    color:#ef233c;
-    text-decoration:none;
+display:block;
+text-align:center;
+margin-top:20px;
+color:#ef233c;
+text-decoration:none;
 }
-</style></head><body><div class="box"><div class="logo">
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="logo">
 ANON <span>RP</span>
-</div><h1>تسجيل الدخول</h1><form id="loginForm"><label for="email">
-البريد الإلكتروني
-</label><input
+</div>
+
+<h1>تسجيل الدخول</h1>
+
+<form id="loginForm">
+
+<label for="email">البريد الإلكتروني</label>
+
+<input
 type="email"
 id="email"
 placeholder="اكتب البريد الإلكتروني"
 required
+>
 
-«»
+<label for="password">كلمة المرور</label>
 
-<label for="password">
-كلمة المرور
-</label><input
+<input
 type="password"
 id="password"
 placeholder="اكتب كلمة المرور"
 required
+>
 
-«»
-
-<button type="submit">
+<button
+type="submit"
+style="display:block;width:100%;background:#ef233c;color:white;padding:15px;border:0;border-radius:10px;font-size:18px;font-weight:bold;"
+>
 تسجيل الدخول
-</button><div class="message" id="message"></div></form><a class="register" href="register.html">
+</button>
+
+<div class="message" id="message"></div>
+
+</form>
+
+<a class="register" href="register.html">
 ليس لديك حساب؟ إنشاء حساب
-</a></div><script>
+</a>
 
-document.getElementById("loginForm").addEventListener("submit", function(e){
+</div>
 
-    e.preventDefault();
+<script>
 
-    const email =
-        document.getElementById("email").value.trim();
+document.getElementById("loginForm").addEventListener("submit",function(e){
 
-    const password =
-        document.getElementById("password").value;
+e.preventDefault();
 
-    const message =
-        document.getElementById("message");
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
+const message=document.getElementById("message");
 
-    const savedAccount =
-        localStorage.getItem("anon_account");
+const savedAccount=localStorage.getItem("anon_account");
 
-    if(!savedAccount){
-        message.textContent =
-        "لا يوجد حساب على هذا المتصفح. أنشئ حساب أولاً.";
-        return;
-    }
+if(!savedAccount){
 
-    const account =
-        JSON.parse(savedAccount);
+message.textContent="لا يوجد حساب. أنشئ حساب أولاً.";
+return;
 
-    if(
-        email === account.email &&
-        password === account.password
-    ){
+}
 
-        localStorage.setItem(
-            "anon_logged_in",
-            "true"
-        );
+const account=JSON.parse(savedAccount);
 
-        localStorage.setItem(
-            "anon_username",
-            account.username
-        );
+if(email===account.email && password===account.password){
 
-        message.textContent =
-        "تم تسجيل الدخول بنجاح ✅";
+localStorage.setItem("anon_logged_in","true");
+localStorage.setItem("anon_username",account.username);
 
-        setTimeout(function(){
-            window.location.href = "profile.html";
-        },800);
+message.textContent="تم تسجيل الدخول بنجاح ✅";
 
-    }else{
+setTimeout(function(){
+window.location.href="profile.html";
+},800);
 
-        message.textContent =
-        "البريد الإلكتروني أو كلمة المرور غير صحيحة ❌";
+}else{
 
-    }
+message.textContent="البريد الإلكتروني أو كلمة المرور غير صحيحة ❌";
+
+}
 
 });
 
-</script></body>
+</script>
+
+</body>
 </html>

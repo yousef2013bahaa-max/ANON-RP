@@ -1,660 +1,109 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>حسابي | ANON RP</title>
+  <title>حسابي | ANON-RP</title>
 
-<style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body{
-font-family:Arial,Tahoma,sans-serif;
-background:#07080c;
-color:#fff;
-min-height:100vh;
-line-height:1.7;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0b0b0f;
+      color: white;
+      padding: 25px;
+    }
 
-header{
-background:#0d0e13;
-border-bottom:1px solid #2b1118;
-padding:15px 20px;
-}
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      background: #15151c;
+      border: 1px solid #292934;
+      border-radius: 18px;
+      padding: 25px;
+    }
 
-.nav{
-max-width:1100px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
 
-.logo{
-font-size:27px;
-font-weight:900;
-}
+    .card {
+      background: #0e0e13;
+      border: 1px solid #292934;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 20px;
+    }
 
-.logo span{
-color:#ef233c;
-}
+    .button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border-radius: 10px;
+      border: none;
+      background: white;
+      color: black;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.home{
-background:#22242c;
-border:1px solid #444;
-color:#fff;
-padding:10px 16px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-}
+    .button:hover {
+      opacity: 0.9;
+    }
 
-.container{
-width:92%;
-max-width:850px;
-margin:45px auto;
-}
-
-.title{
-text-align:center;
-margin-bottom:30px;
-}
-
-.title h1{
-font-size:38px;
-}
-
-.title h1 span{
-color:#ef233c;
-}
-
-.title p{
-color:#888;
-margin-top:5px;
-}
-
-.profile-card{
-background:#111217;
-border:1px solid #3a151d;
-border-radius:20px;
-padding:30px;
-}
-
-.avatar{
-width:90px;
-height:90px;
-margin:0 auto 20px;
-border-radius:50%;
-background:#ef233c;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:40px;
-}
-
-.player-id{
-text-align:center;
-background:#08090d;
-border:1px solid #3a151d;
-border-radius:12px;
-padding:15px;
-margin-bottom:25px;
-}
-
-.player-id small{
-display:block;
-color:#888;
-margin-bottom:4px;
-}
-
-.player-id strong{
-font-size:25px;
-color:#ef233c;
-}
-
-.info-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
-
-.info-box{
-background:#08090d;
-border:1px solid #292a30;
-border-radius:12px;
-padding:15px;
-}
-
-.info-label{
-display:block;
-color:#888;
-font-size:14px;
-margin-bottom:5px;
-}
-
-.info-value{
-font-size:17px;
-font-weight:bold;
-word-break:break-word;
-}
-
-input{
-width:100%;
-padding:13px;
-margin-top:5px;
-background:#08090d;
-border:1px solid #333;
-border-radius:10px;
-color:#fff;
-font-size:16px;
-outline:none;
-}
-
-input:focus{
-border-color:#ef233c;
-}
-
-.section{
-margin-top:25px;
-}
-
-.section-title{
-font-size:22px;
-margin-bottom:12px;
-}
-
-.apply-box{
-background:#08090d;
-border:1px solid #292a30;
-border-radius:12px;
-padding:20px;
-}
-
-.apply-box p{
-color:#999;
-margin-bottom:15px;
-}
-
-.apply-btn{
-display:inline-block;
-background:#ef233c;
-color:#fff;
-padding:12px 20px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.actions{
-margin-top:25px;
-display:flex;
-gap:10px;
-}
-
-button,
-.action-link{
-flex:1;
-display:block;
-padding:14px;
-border-radius:10px;
-font-size:16px;
-font-weight:bold;
-text-align:center;
-cursor:pointer;
-text-decoration:none;
-}
-
-.save{
-background:#ef233c;
-color:#fff;
-border:0;
-}
-
-.logout{
-background:#22242c;
-color:#fff;
-border:1px solid #444;
-}
-
-.message{
-text-align:center;
-margin-top:15px;
-font-weight:bold;
-}
-
-footer{
-margin-top:70px;
-padding:30px 20px;
-text-align:center;
-color:#777;
-border-top:1px solid #222;
-}
-
-@media(max-width:600px){
-
-.nav{
-gap:10px;
-}
-
-.logo{
-font-size:23px;
-}
-
-.home{
-font-size:14px;
-padding:8px 12px;
-}
-
-.container{
-margin-top:30px;
-}
-
-.title h1{
-font-size:30px;
-}
-
-.profile-card{
-padding:20px;
-}
-
-.info-grid{
-grid-template-columns:1fr;
-}
-
-.actions{
-flex-direction:column;
-}
-
-}
-</style>
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #aaa;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <div class="container">
 
-<div class="nav">
+    <h1>👤 حسابي</h1>
 
-<div class="logo">
-ANON <span>RP</span>
-</div>
+    <div class="card">
 
-<a class="home" href="index.html">
-الرئيسية
-</a>
+      <h2>مرحباً بك في ANON-RP</h2>
 
-</div>
+      <p>
+        من هنا يمكنك متابعة حسابك والتقديم للانضمام إلى فريق السيرفر.
+      </p>
 
-</header>
+      <!-- زر التقديم -->
+      <a href="apply.html" class="button">
+        📋 التقديم في ANON-RP
+      </a>
 
+      <!-- زر عرض التقديمات -->
+      <a href="apply.html" class="button">
+        👀 عرض التقديمات
+      </a>
 
-<div class="container">
+    </div>
 
-<div class="title">
+    <a href="index.html" class="back">
+      ← العودة للرئيسية
+    </a>
 
-<h1>
-حسابي <span>👤</span>
-</h1>
-
-<p>
-لوحة اللاعب الخاصة بك في ANON RP
-</p>
-
-</div>
-
-
-<div class="profile-card">
-
-<div class="avatar">
-👤
-</div>
-
-
-<div class="player-id">
-
-<small>ID اللاعب</small>
-
-<strong id="playerId">
-0000
-</strong>
-
-</div>
-
-
-<div class="info-grid">
-
-
-<div class="info-box">
-
-<span class="info-label">
-اسم المستخدم
-</span>
-
-<input
-type="text"
-id="username"
-placeholder="اسم المستخدم"
->
-
-</div>
-
-
-<div class="info-box">
-
-<span class="info-label">
-Discord
-</span>
-
-<input
-type="text"
-id="discord"
-placeholder="Discord"
->
-
-</div>
-
-
-<div class="info-box">
-
-<span class="info-label">
-البريد الإلكتروني
-</span>
-
-<input
-type="email"
-id="email"
-placeholder="البريد الإلكتروني"
->
-
-</div>
-
-
-<div class="info-box">
-
-<span class="info-label">
-الوظيفة
-</span>
-
-<div class="info-value">
-مواطن
-</div>
-
-</div>
-
-
-<div class="info-box">
-
-<span class="info-label">
-حالة الحساب
-</span>
-
-<div class="info-value" style="color:#42d66b;">
-● مسجل الدخول
-</div>
-
-</div>
-
-
-<div class="info-box">
-
-<span class="info-label">
-السيرفر
-</span>
-
-<div class="info-value">
-ANON RP
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="section">
-
-<div class="section-title">
-📋 التقديمات
-</div>
-
-<div class="apply-box">
-
-<p>
-هل تريد الانضمام إلى فريق ANON RP أو التقديم على وظيفة؟
-</p>
-
-<a class="apply-btn" href="index.html#apply">
-عرض التقديمات
-</a>
-
-</div>
-
-</div>
-
-
-<div class="actions">
-
-<button class="save" id="saveBtn">
-حفظ التعديلات
-</button>
-
-<button class="logout" id="logoutBtn">
-تسجيل الخروج
-</button>
-
-</div>
-
-
-<div class="message" id="message"></div>
-
-</div>
-
-</div>
-
-
-<footer>
-
-© 2026 ANON RP
-<br>
-جميع الحقوق محفوظة
-
-</footer>
-
-
-<script>
-
-/* التأكد من تسجيل الدخول */
-
-if(localStorage.getItem("anon_logged_in") !== "true"){
-
-window.location.href="login.html";
-
-}
-
-
-/* قراءة الحساب */
-
-let account = null;
-
-const savedAccount =
-localStorage.getItem("anon_account");
-
-
-if(savedAccount){
-
-try{
-
-account = JSON.parse(savedAccount);
-
-}catch(error){
-
-account = null;
-
-}
-
-}
-
-
-/* دعم الحسابات القديمة */
-
-if(!account){
-
-account = {
-
-username:
-localStorage.getItem("anon_username") || "",
-
-discord:
-localStorage.getItem("anon_discord") || "",
-
-email:
-localStorage.getItem("anon_email") || "",
-
-password:
-localStorage.getItem("anon_password") || ""
-
-};
-
-}
-
-
-/* إنشاء ID للاعب مرة واحدة */
-
-let playerId =
-localStorage.getItem("anon_player_id");
-
-
-if(!playerId){
-
-playerId =
-String(Math.floor(1000 + Math.random() * 9000));
-
-localStorage.setItem(
-"anon_player_id",
-playerId
-);
-
-}
-
-
-document.getElementById("playerId").textContent =
-playerId;
-
-
-/* عرض البيانات */
-
-document.getElementById("username").value =
-account.username || "";
-
-document.getElementById("discord").value =
-account.discord || "";
-
-document.getElementById("email").value =
-account.email || "";
-
-
-/* حفظ التعديلات */
-
-document.getElementById("saveBtn").addEventListener("click",function(){
-
-const username =
-document.getElementById("username").value.trim();
-
-const discord =
-document.getElementById("discord").value.trim();
-
-const email =
-document.getElementById("email").value.trim();
-
-const message =
-document.getElementById("message");
-
-
-if(username.length < 3){
-
-message.style.color="#ef233c";
-
-message.textContent =
-"اسم المستخدم يجب أن يكون 3 أحرف على الأقل ❌";
-
-return;
-
-}
-
-
-if(!email){
-
-message.style.color="#ef233c";
-
-message.textContent =
-"اكتب البريد الإلكتروني ❌";
-
-return;
-
-}
-
-
-/* تحديث الحساب */
-
-account.username = username;
-account.discord = discord;
-account.email = email;
-
-
-/* حفظ البيانات */
-
-localStorage.setItem(
-"anon_account",
-JSON.stringify(account)
-);
-
-localStorage.setItem(
-"anon_username",
-username
-);
-
-localStorage.setItem(
-"anon_discord",
-discord
-);
-
-localStorage.setItem(
-"anon_email",
-email
-);
-
-
-message.style.color="#42d66b";
-
-message.textContent =
-"تم حفظ التعديلات بنجاح ✅";
-
-
-setTimeout(function(){
-
-message.textContent="";
-
-},2500);
-
-});
-
-
-/* تسجيل الخروج */
-
-document.getElementById("logoutBtn").addEventListener("click",function(){
-
-localStorage.removeItem("anon_logged_in");
-
-window.location.href="index.html";
-
-});
-
-</script>
+  </div>
 
 </body>
 </html>

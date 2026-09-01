@@ -69,8 +69,7 @@ const SUPABASE_URL =
 
 
 const SUPABASE_KEY =
-"sb_publishable_xfZeYMI33hXTvNy4Z3JPGQ_BMH4ufF2";
-
+"ضع_المفتاح_هنا";
 
 
 async function load(){
@@ -78,7 +77,7 @@ async function load(){
 
 let res = await fetch(
 
-SUPABASE_URL+"/rest/v1/applications?select=*",
+SUPABASE_URL+"/rest/v1/applications?status=eq.pending&select=*",
 
 {
 headers:{
@@ -99,6 +98,16 @@ let box=document.getElementById("result");
 box.innerHTML="";
 
 
+if(data.length === 0){
+
+box.innerHTML="<div class='card'>لا توجد تقديمات جديدة</div>";
+
+return;
+
+}
+
+
+
 data.forEach(app=>{
 
 
@@ -108,15 +117,21 @@ box.innerHTML += `
 
 <h2>📄 تقديم</h2>
 
-<p>الاسم: ${app.name}</p>
+<p>👤 الاسم: ${app.name}</p>
 
-<p>العمر: ${app.age}</p>
+<p>🎂 العمر: ${app.age}</p>
 
-<p>Discord: ${app.discord}</p>
+<p>💬 Discord: ${app.discord}</p>
 
-<p>النوع: ${app.type}</p>
+<p>📌 النوع: ${app.type}</p>
 
-<p>الحالة: ${app.status || "pending"}</p>
+<p>📝 السبب: ${app.reason}</p>
+
+<p>⭐ الخبرة: ${app.experience}</p>
+
+<p>❓ لماذا نختارك: ${app.why}</p>
+
+<p>📌 الحالة: ${app.status}</p>
 
 
 <button class="accept"
@@ -159,7 +174,7 @@ method:"PATCH",
 
 headers:{
 
-"apikey":SUPABASE_KEY,
+"apikey":sb_publishable_xfZeYMI33hXTvNy4Z3JPGQ_BMH4ufF2,
 
 "Authorization":"Bearer "+SUPABASE_KEY,
 

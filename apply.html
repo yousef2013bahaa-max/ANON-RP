@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>التقديم | ANON-RP</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0b0b0f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background: #15151c;
+      border: 1px solid #292934;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 18px;
+      border: 1px solid #33333f;
+      border-radius: 10px;
+      background: #0e0e13;
+      color: white;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #ffffff;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: white;
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      background: #102415;
+      border: 1px solid #245b30;
+      color: #7dff91;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>📋 التقديم في ANON-RP</h1>
+
+    <p class="subtitle">
+      املأ البيانات التالية للتقديم
+    </p>
+
+    <form id="applyForm">
+
+      <label>الاسم داخل السيرفر</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="اكتب اسمك"
+        required
+      >
+
+      <label>العمر</label>
+      <input
+        type="number"
+        id="age"
+        placeholder="اكتب عمرك"
+        min="10"
+        max="100"
+        required
+      >
+
+      <label>Discord ID</label>
+      <input
+        type="text"
+        id="discord"
+        placeholder="اكتب Discord ID"
+        required
+      >
+
+      <label>نوع التقديم</label>
+
+      <select id="type" required>
+        <option value="">اختر نوع التقديم</option>
+        <option value="إدارة">إدارة</option>
+        <option value="مراقب">مراقب</option>
+        <option value="ستاف">ستاف</option>
+        <option value="عصابة">عصابة</option>
+        <option value="أخرى">أخرى</option>
+      </select>
+
+      <label>لماذا تريد الانضمام إلى فريق ANON-RP؟</label>
+
+      <textarea
+        id="reason"
+        placeholder="اكتب إجابتك هنا..."
+        required
+      ></textarea>
+
+      <label>خبراتك</label>
+
+      <textarea
+        id="experience"
+        placeholder="اكتب خبراتك السابقة..."
+        required
+      ></textarea>
+
+      <label>لماذا نختارك أنت؟</label>
+
+      <textarea
+        id="why"
+        placeholder="اكتب إجابتك..."
+        required
+      ></textarea>
+
+      <button type="submit">
+        🚀 إرسال التقديم
+      </button>
+
+    </form>
+
+    <div class="success" id="success">
+      ✅ تم إرسال التقديم بنجاح!
+      <br>
+      سيتم مراجعة طلبك من الإدارة.
+    </div>
+
+    <a href="profile.html" class="back">
+      ← العودة إلى حسابي
+    </a>
+
+  </div>
+
+  <script>
+
+    document.getElementById("applyForm").addEventListener("submit", function(e) {
+
+      e.preventDefault();
+
+      const application = {
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        discord: document.getElementById("discord").value,
+        type: document.getElementById("type").value,
+        reason: document.getElementById("reason").value,
+        experience: document.getElementById("experience").value,
+        why: document.getElementById("why").value,
+        date: new Date().toLocaleString("ar-EG")
+      };
+
+      let applications =
+        JSON.parse(localStorage.getItem("anon_rp_applications")) || [];
+
+      applications.push(application);
+
+      localStorage.setItem(
+        "anon_rp_applications",
+        JSON.stringify(applications)
+      );
+
+      document.getElementById("applyForm").style.display = "none";
+      document.getElementById("success").style.display = "block";
+
+    });
+
+  </script>
+
+</body>
+</html>

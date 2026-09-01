@@ -1,52 +1,63 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ANON RP - تسجيل الدخول</title>
-
-<style>
-body{
+<title>تسجيل الدخول - ANON RP</title><style>
+*{
+    box-sizing:border-box;
     margin:0;
+    padding:0;
+}
+
+body{
     font-family:Arial,Tahoma,sans-serif;
     background:#08090d;
     color:white;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
+    padding:20px;
 }
 
 .box{
-    width:90%;
+    width:100%;
     max-width:430px;
     background:#111217;
     border:1px solid #3a151d;
     border-radius:20px;
     padding:30px;
+}
+
+h1{
     text-align:center;
+    margin-bottom:25px;
 }
 
 h1 span{
     color:#ef233c;
 }
 
+label{
+    display:block;
+    margin:15px 0 7px;
+    font-weight:bold;
+}
+
 input{
     width:100%;
     padding:14px;
-    margin:8px 0;
-    border:0;
+    border:1px solid #333;
     border-radius:10px;
-    background:#22242c;
+    background:#08090d;
     color:white;
-    box-sizing:border-box;
+    font-size:16px;
 }
 
 button{
     width:100%;
+    margin-top:25px;
     padding:14px;
-    margin-top:15px;
     border:0;
     border-radius:10px;
     background:#ef233c;
@@ -57,90 +68,79 @@ button{
 }
 
 .message{
+    text-align:center;
     margin-top:15px;
+    color:#aaa;
 }
-</style>
-</head>
 
-<body>
-
-<div class="box">
-
-<h1>ANON <span>RP</span></h1>
-
-<h2>🔐 تسجيل الدخول</h2>
-
-<input
-    type="text"
-    id="username"
-    placeholder="اسم المستخدم"
->
-
-<input
-    type="password"
-    id="password"
-    placeholder="كلمة المرور"
->
-
-<button onclick="login()">
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#ef233c;
+    text-decoration:none;
+}
+</style></head><body><div class="box"><h1>
 تسجيل الدخول
-</button>
+<span>ANON RP</span>
+</h1><form id="loginForm"><label for="email">البريد الإلكتروني</label>
+<input
+type="email"
+id="email"
+placeholder="example@email.com"
+required
 
-<p class="message" id="message"></p>
+«»
 
-</div>
+<label for="password">كلمة المرور</label>
+<input
+type="password"
+id="password"
+placeholder="كلمة المرور"
+required
 
-<script>
+«»
 
-function login(){
+<button type="submit">
+دخول
+</button><div class="message" id="message"></div></form><a class="back" href="index.html">
+العودة للرئيسية
+</a></div><script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
 
-    const username =
-        document.getElementById("username").value.trim();
+    e.preventDefault();
 
-    const password =
-        document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-    const message =
-        document.getElementById("message");
+    const savedEmail = localStorage.getItem("anon_email");
 
-    const savedUsername =
-        localStorage.getItem("anon_username");
-
-    const savedPassword =
-        localStorage.getItem("anon_password");
-
-    if(username === "" || password === ""){
-        message.textContent =
-            "⚠️ اكتب اسم المستخدم وكلمة المرور";
+    if(!savedEmail){
+        document.getElementById("message").textContent =
+        "لا يوجد حساب. أنشئ حسابًا أولًا.";
         return;
     }
 
-    if(
-        username === savedUsername &&
-        password === savedPassword
-    ){
-
-        localStorage.setItem(
-            "anon_logged_in",
-            "true"
-        );
-
-        message.textContent =
-            "✅ تم تسجيل الدخول بنجاح!";
-
-        setTimeout(function(){
-            window.location.href =
-                "index.html";
-        },1000);
-
-    }else{
-
-        message.textContent =
-            "❌ اسم المستخدم أو كلمة المرور غير صحيحة";
+    if(email !== savedEmail){
+        document.getElementById("message").textContent =
+        "البريد الإلكتروني غير صحيح.";
+        return;
     }
-}
 
-</script>
+    if(password.length < 6){
+        document.getElementById("message").textContent =
+        "كلمة المرور غير صحيحة.";
+        return;
+    }
 
-</body>
+    localStorage.setItem("anon_logged_in", "true");
+
+    document.getElementById("message").textContent =
+    "تم تسجيل الدخول ✅";
+
+    setTimeout(function(){
+        window.location.href = "profile.html";
+    }, 1000);
+});
+</script></body>
 </html>

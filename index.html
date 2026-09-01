@@ -1,239 +1,227 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ANON RP | الصفحة الرئيسية</title><style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANON RP | الصفحة الرئيسية</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    font-family:Arial,Tahoma,sans-serif;
-    background:#07080c;
-    color:white;
-    line-height:1.7;
+font-family:Arial,Tahoma,sans-serif;
+background:#07080c;
+color:#fff;
+line-height:1.7
 }
 
 header{
-    background:#0d0e13;
-    border-bottom:1px solid #35121a;
-    padding:15px 10px;
+position:sticky;
+top:0;
+z-index:10;
+background:#0d0e13;
+border-bottom:1px solid #2b1118
 }
 
 .nav{
-    max-width:1150px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
+max-width:1150px;
+margin:auto;
+padding:16px 20px;
+display:flex;
+align-items:center;
+gap:12px;
+flex-wrap:wrap
 }
 
 .logo{
-    font-size:28px;
-    font-weight:900;
-    width:100%;
-    text-align:center;
-    margin-bottom:5px;
+font-size:27px;
+font-weight:900;
+margin-left:auto
 }
 
-.logo span{
-    color:#ef233c;
-}
+.logo span{color:#ef233c}
 
 .nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    padding:10px 12px;
-    border-radius:10px;
-    display:inline-block;
+color:#ddd;
+text-decoration:none;
+font-weight:bold;
+padding:10px 14px;
+border-radius:10px
 }
 
+.nav a:hover{color:#fff}
+
 .register-top{
-    background:#22242c;
-    border:1px solid #555;
+background:#22242c;
+border:1px solid #444;
+color:#fff!important
 }
 
 .login-top{
-    background:#ef233c;
+background:#ef233c;
+color:#fff!important
 }
 
 .hero{
-    max-width:1000px;
-    margin:70px auto;
-    padding:25px 20px;
-    text-align:center;
+max-width:1150px;
+margin:70px auto 40px;
+padding:30px 20px;
+text-align:center
 }
 
 .badge{
-    display:inline-block;
-    background:#171019;
-    border:1px solid #3b151e;
-    color:#ef233c;
-    padding:8px 15px;
-    border-radius:30px;
-    font-weight:bold;
-    margin-bottom:20px;
+display:inline-block;
+background:#171019;
+border:1px solid #3b151e;
+color:#ef233c;
+padding:8px 15px;
+border-radius:30px;
+font-weight:bold;
+margin-bottom:20px
 }
 
 .hero h1{
-    font-size:55px;
-    line-height:1.2;
-    margin-bottom:20px;
+font-size:60px;
+line-height:1.2;
+margin-bottom:18px
 }
 
-.hero h1 span{
-    color:#ef233c;
-}
+.hero h1 span{color:#ef233c}
 
 .hero p{
-    color:#aaa;
-    font-size:19px;
+max-width:720px;
+margin:auto;
+color:#aaa;
+font-size:19px
 }
 
 .buttons{
-    margin-top:30px;
+margin-top:30px
 }
 
 .btn{
-    display:inline-block;
-    padding:14px 25px;
-    margin:5px;
-    border-radius:11px;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:bold;
+display:inline-block;
+border:0;
+padding:14px 24px;
+border-radius:11px;
+font-size:17px;
+font-weight:bold;
+text-decoration:none;
+margin:5px;
+cursor:pointer
 }
 
-.red{
-    background:#ef233c;
-    color:white;
-}
-
-.dark{
-    background:#22242c;
-    color:white;
-}
+.red{background:#ef233c;color:#fff}
+.dark{background:#22242c;color:#fff}
 
 .container{
-    max-width:1150px;
-    margin:auto;
-    padding:20px;
+max-width:1150px;
+margin:auto;
+padding:20px
 }
 
 .title{
-    text-align:center;
-    margin:50px 0 25px;
+text-align:center;
+margin:50px 0 25px
 }
 
-.title h2{
-    font-size:34px;
-}
-
-.title p{
-    color:#888;
-}
+.title h2{font-size:34px}
+.title p{color:#888}
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
 }
 
 .card{
-    background:#111217;
-    border:1px solid #2e151b;
-    border-radius:18px;
-    padding:27px;
-    text-align:center;
+background:#111217;
+border:1px solid #2e151b;
+border-radius:18px;
+padding:27px;
+text-align:center
 }
 
 .icon{
-    font-size:42px;
+font-size:42px;
+margin-bottom:10px
 }
 
-.card h3{
-    font-size:22px;
-    margin:10px 0;
-}
-
-.card p{
-    color:#999;
-}
+.card h3{font-size:22px;margin-bottom:8px}
+.card p{color:#999}
 
 .server{
-    margin-top:35px;
-    background:#111217;
-    border:1px solid #2e151b;
-    border-radius:18px;
-    padding:28px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    text-align:center;
+margin-top:35px;
+background:#111217;
+border:1px solid #2e151b;
+border-radius:18px;
+padding:28px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+text-align:center
 }
 
 .stat strong{
-    display:block;
-    font-size:30px;
-    color:#ef233c;
+display:block;
+font-size:30px;
+color:#ef233c
 }
 
-.stat span{
-    color:#999;
-}
+.stat span{color:#999}
 
 footer{
-    margin-top:70px;
-    padding:35px 20px;
-    text-align:center;
-    color:#777;
-    border-top:1px solid #222;
+margin-top:70px;
+padding:35px 20px;
+text-align:center;
+border-top:1px solid #222;
+color:#777
 }
 
-@media(max-width:700px){
+@media(max-width:750px){
 
-    .nav a{
-        font-size:13px;
-        padding:9px 10px;
-    }
-
-    .hero{
-        margin:40px auto;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    .buttons{
-        display:flex;
-        flex-direction:column;
-    }
-
-    .btn{
-        width:100%;
-        margin:5px 0;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .server{
-        grid-template-columns:1fr;
-    }
+.nav{
+justify-content:center;
+gap:6px
 }
-</style></head><body><header><div class="nav"><div class="logo">
+
+.logo{
+width:100%;
+text-align:center;
+margin:0 0 5px
+}
+
+.nav a{
+font-size:13px;
+padding:9px 10px
+}
+
+.cards,.server{
+grid-template-columns:1fr
+}
+
+.hero{
+margin-top:35px
+}
+
+.hero h1{
+font-size:40px
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
 ANON <span>RP</span>
-</div><a href="index.html">الرئيسية</a>
+</div>
+
+<a href="index.html">الرئيسية</a>
 
 <a href="#about">عن السيرفر</a>
 
@@ -241,87 +229,198 @@ ANON <span>RP</span>
 
 <a href="#apply">التقديمات</a>
 
-<a href="register.html" class="register-top">
+<a id="registerBtn" class="register-top" href="register.html">
 إنشاء حساب
-</a><a href="login.html" class="login-top">
+</a>
+
+<a id="loginBtn" class="login-top" href="login.html">
 تسجيل الدخول
-</a></div></header><section class="hero"><div class="badge">
+</a>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="badge">
 مرحبًا بك في ANON RP
-</div><h1>
+</div>
+
+<h1>
 عش قصتك في
 <span>ANON RP</span>
-</h1><p>
+</h1>
+
+<p>
 سيرفر رول بلاي جديد يمنحك عالمًا مفتوحًا لصناعة شخصيتك،
 بناء قصتك، والتفاعل مع مجتمع اللاعبين.
-</p><div class="buttons"><a class="btn red" href="register.html">
+</p>
+
+<div class="buttons">
+
+<a class="btn red" href="register.html">
 إنشاء حساب
-</a><a class="btn dark" href="login.html">
+</a>
+
+<a class="btn dark" href="login.html">
 تسجيل الدخول
-</a></div></section><div class="container" id="about"><div class="title">
+</a>
+
+</div>
+
+</section>
+
+
+<div class="container" id="about">
+
+<div class="title">
 <h2>عن ANON RP</h2>
 <p>كل شيء تحتاجه لتبدأ رحلتك</p>
-</div><div class="cards"><div class="card">
+</div>
+
+<div class="cards">
+
+<div class="card">
 <div class="icon">🎮</div>
 <h3>رول بلاي</h3>
 <p>
 اصنع شخصية خاصة بك وعش أحداثًا وقصصًا مختلفة داخل المدينة.
 </p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="icon">👥</div>
 <h3>مجتمع اللاعبين</h3>
 <p>
 تعرّف على لاعبين آخرين وشاركهم مغامراتك وقصصك.
 </p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="icon">🏆</div>
 <h3>الوظائف والإدارات</h3>
 <p>
 تقدم للوظائف والإدارات وساهم في تطوير مجتمع ANON RP.
 </p>
-</div></div><div class="title" id="rules">
+</div>
+
+</div>
+
+
+<div class="title" id="rules">
+
 <h2>القوانين</h2>
 <p>احترم القوانين وحافظ على متعة اللعب للجميع</p>
-</div><div class="cards"><div class="card">
+
+</div>
+
+<div class="cards">
+
+<div class="card">
 <div class="icon">⚖️</div>
 <h3>احترام اللاعبين</h3>
 <p>ممنوع الإساءة أو المضايقة أو التخريب المتعمد.</p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="icon">🚫</div>
 <h3>منع الغش</h3>
 <p>استخدام الغش أو استغلال الثغرات ممنوع.</p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="icon">📋</div>
 <h3>اتباع تعليمات الإدارة</h3>
 <p>يجب الالتزام بتعليمات إدارة السيرفر.</p>
-</div></div><div class="title" id="apply">
+</div>
+
+</div>
+
+
+<div class="title" id="apply">
+
 <h2>التقديمات</h2>
 <p>هل تريد أن تكون جزءًا من فريق ANON RP؟</p>
-</div><div class="cards"><div class="card">
+
+</div>
+
+<div class="cards">
+
+<div class="card">
 <div class="icon">👮</div>
 <h3>الإدارة</h3>
 <p>تقدم للانضمام إلى فريق الإدارة والمساعدة في تنظيم السيرفر.</p>
 <a class="btn red" href="register.html">ابدأ الآن</a>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="icon">💼</div>
 <h3>الوظائف</h3>
 <p>استعد لصناعة مسيرتك داخل عالم ANON RP.</p>
 <a class="btn dark" href="register.html">تسجيل حساب</a>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="icon">📢</div>
 <h3>آخر الأخبار</h3>
 <p>تابع أخبار وتحديثات ANON RP القادمة.</p>
-</div></div><div class="server"><div class="stat">
+</div>
+
+</div>
+
+
+<div class="server">
+
+<div class="stat">
 <strong>ANON RP</strong>
 <span>اسم السيرفر</span>
-</div><div class="stat">
+</div>
+
+<div class="stat">
 <strong>ONLINE</strong>
 <span>حالة المجتمع</span>
-</div><div class="stat">
+</div>
+
+<div class="stat">
 <strong>2026</strong>
 <span>سنة الانطلاق</span>
-</div></div></div><footer>
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
 © 2026 ANON RP
 <br>
 جميع الحقوق محفوظة
-</footer></body>
+</footer>
+
+
+<script>
+
+const loggedIn =
+localStorage.getItem("anon_logged_in") === "true";
+
+const registerBtn =
+document.getElementById("registerBtn");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+if(loggedIn){
+
+registerBtn.style.display = "none";
+
+loginBtn.textContent = "حسابي 👤";
+loginBtn.href = "profile.html";
+
+}
+
+</script>
+
+</body>
 </html>

@@ -1,275 +1,249 @@
 <!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANON RP | الصفحة الرئيسية</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ANON RP | الصفحة الرئيسية</title><style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-font-family:Arial,Tahoma,sans-serif;
-background:#07080c;
-color:#fff;
-line-height:1.7;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#07080c;
+    color:white;
+    line-height:1.7;
 }
 
 header{
-position:sticky;
-top:0;
-z-index:10;
-background:#0d0e13;
-border-bottom:1px solid #2b1118;
+    background:#0d0e13;
+    border-bottom:1px solid #35121a;
+    padding:15px 10px;
 }
 
 .nav{
-max-width:1150px;
-margin:auto;
-padding:16px 20px;
-display:flex;
-align-items:center;
-gap:12px;
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 .logo{
-font-size:27px;
-font-weight:900;
-margin-left:auto;
+    font-size:28px;
+    font-weight:900;
+    width:100%;
+    text-align:center;
+    margin-bottom:5px;
 }
 
 .logo span{
-color:#ef233c;
+    color:#ef233c;
 }
 
 .nav a{
-color:#ddd;
-text-decoration:none;
-font-weight:bold;
-padding:10px 14px;
-border-radius:10px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:10px 12px;
+    border-radius:10px;
+    display:inline-block;
 }
 
-.nav a:hover{
-color:#fff;
+.register-top{
+    background:#22242c;
+    border:1px solid #555;
 }
 
-.top-register{
-background:#22242c;
-border:1px solid #444;
-color:#fff!important;
-}
-
-.top-login{
-background:#ef233c;
-color:#fff!important;
+.login-top{
+    background:#ef233c;
 }
 
 .hero{
-max-width:1150px;
-margin:70px auto 40px;
-padding:30px 20px;
-text-align:center;
+    max-width:1000px;
+    margin:70px auto;
+    padding:25px 20px;
+    text-align:center;
 }
 
 .badge{
-display:inline-block;
-background:#171019;
-border:1px solid #3b151e;
-color:#ef233c;
-padding:8px 15px;
-border-radius:30px;
-font-weight:bold;
-margin-bottom:20px;
+    display:inline-block;
+    background:#171019;
+    border:1px solid #3b151e;
+    color:#ef233c;
+    padding:8px 15px;
+    border-radius:30px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
 .hero h1{
-font-size:60px;
-line-height:1.2;
-margin-bottom:18px;
+    font-size:55px;
+    line-height:1.2;
+    margin-bottom:20px;
 }
 
 .hero h1 span{
-color:#ef233c;
+    color:#ef233c;
 }
 
 .hero p{
-max-width:720px;
-margin:auto;
-color:#aaa;
-font-size:19px;
+    color:#aaa;
+    font-size:19px;
 }
 
 .buttons{
-margin-top:30px;
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
+    margin-top:30px;
 }
 
 .btn{
-display:inline-block;
-border:0;
-padding:14px 24px;
-border-radius:11px;
-font-size:17px;
-font-weight:bold;
-text-decoration:none;
-cursor:pointer;
+    display:inline-block;
+    padding:14px 25px;
+    margin:5px;
+    border-radius:11px;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:bold;
 }
 
 .red{
-background:#ef233c;
-color:#fff;
+    background:#ef233c;
+    color:white;
 }
 
 .dark{
-background:#22242c;
-color:#fff;
-border:1px solid #444;
+    background:#22242c;
+    color:white;
 }
 
 .container{
-max-width:1150px;
-margin:auto;
-padding:20px;
+    max-width:1150px;
+    margin:auto;
+    padding:20px;
 }
 
 .title{
-text-align:center;
-margin:50px 0 25px;
+    text-align:center;
+    margin:50px 0 25px;
 }
 
 .title h2{
-font-size:34px;
+    font-size:34px;
 }
 
 .title p{
-color:#888;
+    color:#888;
 }
 
 .cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
 .card{
-background:#111217;
-border:1px solid #2e151b;
-border-radius:18px;
-padding:27px;
-text-align:center;
+    background:#111217;
+    border:1px solid #2e151b;
+    border-radius:18px;
+    padding:27px;
+    text-align:center;
 }
 
 .icon{
-font-size:42px;
-margin-bottom:10px;
+    font-size:42px;
 }
 
 .card h3{
-font-size:22px;
-margin-bottom:8px;
+    font-size:22px;
+    margin:10px 0;
 }
 
 .card p{
-color:#999;
+    color:#999;
 }
 
 .server{
-margin-top:35px;
-background:#111217;
-border:1px solid #2e151b;
-border-radius:18px;
-padding:28px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-text-align:center;
+    margin-top:35px;
+    background:#111217;
+    border:1px solid #2e151b;
+    border-radius:18px;
+    padding:28px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    text-align:center;
 }
 
 .stat strong{
-display:block;
-font-size:30px;
-color:#ef233c;
+    display:block;
+    font-size:30px;
+    color:#ef233c;
 }
 
 .stat span{
-color:#999;
+    color:#999;
 }
 
 footer{
-margin-top:70px;
-padding:35px 20px;
-text-align:center;
-border-top:1px solid #222;
-color:#777;
+    margin-top:70px;
+    padding:35px 20px;
+    text-align:center;
+    color:#777;
+    border-top:1px solid #222;
 }
 
-@media(max-width:750px){
+@media(max-width:700px){
 
-.nav{
-flex-wrap:wrap;
-justify-content:center;
-gap:6px;
-}
+    .nav a{
+        font-size:13px;
+        padding:9px 10px;
+    }
 
-.logo{
-width:100%;
-text-align:center;
-margin:0 0 8px 0;
-}
+    .hero{
+        margin:40px auto;
+    }
 
-.nav a{
-font-size:13px;
-padding:9px 10px;
-}
+    .hero h1{
+        font-size:40px;
+    }
 
-.top-register,
-.top-login{
-display:inline-block!important;
-}
+    .hero p{
+        font-size:17px;
+    }
 
-.cards,
-.server{
-grid-template-columns:1fr;
-}
+    .buttons{
+        display:flex;
+        flex-direction:column;
+    }
 
-.hero{
-margin-top:35px;
-}
+    .btn{
+        width:100%;
+        margin:5px 0;
+    }
 
-.hero h1{
-font-size:40px;
-}
+    .cards{
+        grid-template-columns:1fr;
+    }
 
-.hero p{
-font-size:17px;
-}
-
-.buttons{
-flex-direction:column;
-}
-
-.buttons .btn{
-width:100%;
-}
+    .server{
+        grid-template-columns:1fr;
+    }
 }
 </style></head><body><header><div class="nav"><div class="logo">
 ANON <span>RP</span>
-</div><a href="index.html">
-الرئيسية
-</a><a href="#about">
-عن السيرفر
-</a><a href="#rules">
-القوانين
-</a><a href="#apply">
-التقديمات
-</a><a class="top-register" href="register.html">
+</div><a href="index.html">الرئيسية</a>
+
+<a href="#about">عن السيرفر</a>
+
+<a href="#rules">القوانين</a>
+
+<a href="#apply">التقديمات</a>
+
+<a href="register.html" class="register-top">
 إنشاء حساب
-</a><a class="top-login" href="login.html">
+</a><a href="login.html" class="login-top">
 تسجيل الدخول
 </a></div></header><section class="hero"><div class="badge">
 مرحبًا بك في ANON RP
@@ -304,39 +278,39 @@ ANON <span>RP</span>
 <p>
 تقدم للوظائف والإدارات وساهم في تطوير مجتمع ANON RP.
 </p>
-</div></div><div class="title" id="rules"><h2>القوانين</h2><p>
-احترم القوانين وحافظ على متعة اللعب للجميع
-</p></div><div class="cards"><div class="card">
+</div></div><div class="title" id="rules">
+<h2>القوانين</h2>
+<p>احترم القوانين وحافظ على متعة اللعب للجميع</p>
+</div><div class="cards"><div class="card">
 <div class="icon">⚖️</div>
 <h3>احترام اللاعبين</h3>
-<p>
-ممنوع الإساءة أو المضايقة أو التخريب المتعمد.
-</p>
+<p>ممنوع الإساءة أو المضايقة أو التخريب المتعمد.</p>
 </div><div class="card">
 <div class="icon">🚫</div>
 <h3>منع الغش</h3>
-<p>
-استخدام الغش أو استغلال الثغرات ممنوع.
-</p>
+<p>استخدام الغش أو استغلال الثغرات ممنوع.</p>
 </div><div class="card">
 <div class="icon">📋</div>
 <h3>اتباع تعليمات الإدارة</h3>
-<p>
-يجب الالتزام بتعليمات إدارة السيرفر.
-</p>
-</div></div><div class="title" id="apply"><h2>التقديمات</h2><p>
-هل تريد أن تكون جزءًا من فريق ANON RP؟
-</p></div><div class="cards"><div class="card"><div class="icon">👮</div><h3>الإدارة</h3><p>
-تقدم للانضمام إلى فريق الإدارة والمساعدة في تنظيم السيرفر.
-</p><a class="btn red" href="register.html">
-ابدأ الآن
-</a></div><div class="card"><div class="icon">💼</div><h3>الوظائف</h3><p>
-استعد لصناعة مسيرتك داخل عالم ANON RP.
-</p><a class="btn dark" href="register.html">
-تسجيل حساب
-</a></div><div class="card"><div class="icon">📢</div><h3>آخر الأخبار</h3><p>
-تابع أخبار وتحديثات ANON RP القادمة.
-</p></div></div><div class="server"><div class="stat">
+<p>يجب الالتزام بتعليمات إدارة السيرفر.</p>
+</div></div><div class="title" id="apply">
+<h2>التقديمات</h2>
+<p>هل تريد أن تكون جزءًا من فريق ANON RP؟</p>
+</div><div class="cards"><div class="card">
+<div class="icon">👮</div>
+<h3>الإدارة</h3>
+<p>تقدم للانضمام إلى فريق الإدارة والمساعدة في تنظيم السيرفر.</p>
+<a class="btn red" href="register.html">ابدأ الآن</a>
+</div><div class="card">
+<div class="icon">💼</div>
+<h3>الوظائف</h3>
+<p>استعد لصناعة مسيرتك داخل عالم ANON RP.</p>
+<a class="btn dark" href="register.html">تسجيل حساب</a>
+</div><div class="card">
+<div class="icon">📢</div>
+<h3>آخر الأخبار</h3>
+<p>تابع أخبار وتحديثات ANON RP القادمة.</p>
+</div></div><div class="server"><div class="stat">
 <strong>ANON RP</strong>
 <span>اسم السيرفر</span>
 </div><div class="stat">
@@ -345,9 +319,9 @@ ANON <span>RP</span>
 </div><div class="stat">
 <strong>2026</strong>
 <span>سنة الانطلاق</span>
-</div></div></div><footer>© 2026 ANON RP
-
-<br>جميع الحقوق محفوظة
-
+</div></div></div><footer>
+© 2026 ANON RP
+<br>
+جميع الحقوق محفوظة
 </footer></body>
 </html>

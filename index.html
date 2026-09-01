@@ -52,6 +52,14 @@ padding:10px 17px;
 border-radius:10px
 }
 
+.register-top{
+background:#22242c!important;
+color:#fff!important;
+padding:10px 17px;
+border-radius:10px;
+border:1px solid #444
+}
+
 .hero{
 max-width:1150px;
 margin:70px auto 40px;
@@ -167,9 +175,11 @@ color:#777
 }
 
 @media(max-width:750px){
+
 .nav{
 flex-wrap:wrap;
-justify-content:center
+justify-content:center;
+gap:10px
 }
 
 .logo{
@@ -178,25 +188,45 @@ text-align:center;
 margin:0
 }
 
+.nav a{
+font-size:14px
+}
+
+.login,
+.register-top{
+padding:9px 12px
+}
+
 .cards,.server{
 grid-template-columns:1fr
 }
 
-.hero{margin-top:35px}
-.hero h1{font-size:40px}
+.hero{
+margin-top:35px
 }
-</style></head><body><header>
-<div class="nav"><div class="logo">
+
+.hero h1{
+font-size:40px
+}
+
+}
+</style></head><body><header><div class="nav"><div class="logo">
 ANON <span>RP</span>
 </div><a href="index.html">الرئيسية</a>
+
 <a href="#about">عن السيرفر</a>
+
 <a href="#rules">القوانين</a>
+
 <a href="#apply">التقديمات</a>
 
-<a class="login" href="login.html">
+<a class="register-top" href="register.html">
+إنشاء حساب
+</a><a class="login" href="login.html">
 تسجيل الدخول
-</a></div>
-</header><section class="hero"><div class="badge">مرحبًا بك في ANON RP</div><h1>
+</a></div></header><section class="hero"><div class="badge">
+مرحبًا بك في ANON RP
+</div><h1>
 عش قصتك في
 <span>ANON RP</span>
 </h1><p>
@@ -233,33 +263,44 @@ ANON <span>RP</span>
 </div><div class="cards"><div class="card">
 <div class="icon">⚖️</div>
 <h3>احترام اللاعبين</h3>
-<p>ممنوع الإساءة أو المضايقة أو التخريب المتعمد.</p>
+<p>
+ممنوع الإساءة أو المضايقة أو التخريب المتعمد.
+</p>
 </div><div class="card">
 <div class="icon">🚫</div>
 <h3>منع الغش</h3>
-<p>استخدام الغش أو استغلال الثغرات ممنوع.</p>
+<p>
+استخدام الغش أو استغلال الثغرات ممنوع.
+</p>
 </div><div class="card">
 <div class="icon">📋</div>
 <h3>اتباع تعليمات الإدارة</h3>
-<p>يجب الالتزام بتعليمات إدارة السيرفر.</p>
+<p>
+يجب الالتزام بتعليمات إدارة السيرفر.
+</p>
 </div></div><div class="title" id="apply">
 <h2>التقديمات</h2>
 <p>هل تريد أن تكون جزءًا من فريق ANON RP؟</p>
 </div><div class="cards"><div class="card">
 <div class="icon">👮</div>
 <h3>الإدارة</h3>
-<p>تقدم للانضمام إلى فريق الإدارة والمساعدة في تنظيم السيرفر.</p>
-<a class="btn red" href="register.html">ابدأ الآن</a>
-</div><div class="card">
+<p>
+تقدم للانضمام إلى فريق الإدارة والمساعدة في تنظيم السيرفر.
+</p><a class="btn red" href="register.html">
+ابدأ الآن
+</a></div><div class="card">
 <div class="icon">💼</div>
 <h3>الوظائف</h3>
-<p>استعد لصناعة مسيرتك داخل عالم ANON RP.</p>
-<a class="btn dark" href="register.html">تسجيل حساب</a>
-</div><div class="card">
+<p>
+استعد لصناعة مسيرتك داخل عالم ANON RP.
+</p><a class="btn dark" href="register.html">
+تسجيل حساب
+</a></div><div class="card">
 <div class="icon">📢</div>
 <h3>آخر الأخبار</h3>
-<p>تابع أخبار وتحديثات ANON RP القادمة.</p>
-</div></div><div class="server"><div class="stat">
+<p>
+تابع أخبار وتحديثات ANON RP القادمة.
+</p></div></div><div class="server"><div class="stat">
 <strong>ANON RP</strong>
 <span>اسم السيرفر</span>
 </div><div class="stat">

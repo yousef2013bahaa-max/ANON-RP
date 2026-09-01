@@ -1,54 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عرض التقديمات | ANON-RP</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#0b0b0f;
+    color:white;
+    font-family:Arial;
+    padding:20px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+}
+
+.card{
+    background:#15151c;
+    padding:20px;
+    margin:15px 0;
+    border-radius:15px;
+    border:1px solid #333;
+}
+
+#result{
+    margin-top:20px;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#aaa;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>📋 تقديمات ANON-RP</h1>
+
+
+<div id="result">
+جاري تحميل التقديمات...
+</div>
+
+
+<a class="back" href="profile.html">
+العودة إلى حسابي
+</a>
+
+
+</div>
+
+
+
 <script>
+
+
 const SUPABASE_URL = "https://zqpemyoukxseyhgnrzja.supabase.co";
-const SUPABASE_KEY = "sb_publishable_mUGB0FZrWlVpxHspDlq8SQ_cIu3Pmcr";
+
+
+const SUPABASE_KEY = "sb_publishable_clUVX-Bp8tXeyrrhyaXQQQ_XIMlkBHz";
+
+
 
 async function loadApplications(){
 
-  const box = document.getElementById("result");
 
-  try {
+const result = document.getElementById("result");
 
-    const response = await fetch(
-      SUPABASE_URL + "/rest/v1/applications?select=*",
-      {
-        headers:{
-          "apikey": SUPABASE_KEY,
-          "Authorization": "Bearer " + SUPABASE_KEY
-        }
-      }
-    );
+try{
 
-    const data = await response.json();
 
-    console.log(data);
+const response = await fetch(
+SUPABASE_URL + "/rest/v1/applications?select=*",
+{
 
-    if(!data.length){
-      box.innerHTML = "لا توجد تقديمات";
-      return;
-    }
+headers:{
 
-    box.innerHTML = "";
+"apikey": SUPABASE_KEY,
 
-    data.forEach(app=>{
-      box.innerHTML += `
-      <div class="card">
-        <h3>📄 تقديم</h3>
-        <p>الاسم: ${app.name}</p>
-        <p>العمر: ${app.age}</p>
-        <p>Discord: ${app.discord}</p>
-        <p>النوع: ${app.type}</p>
-        <p>السبب: ${app.reason}</p>
-        <p>الخبرة: ${app.experience}</p>
-        <p>لماذا نختارك: ${app.why}</p>
-      </div>
-      `;
-    });
+"Authorization": "Bearer " + SUPABASE_KEY
 
-  } catch(error){
-    box.innerHTML = "حصل خطأ";
-    console.log(error);
-  }
 }
 
+}
+
+);
+
+
+
+if(!response.ok){
+
+throw new Error("فشل الاتصال");
+
+}
+
+
+
+const data = await response.json();
+
+
+
+if(data.length === 0){
+
+result.innerHTML =
+"<div class='card'>لا توجد تقديمات حاليا</div>";
+
+return;
+
+}
+
+
+
+result.innerHTML="";
+
+
+
+data.forEach(app=>{
+
+
+result.innerHTML += `
+
+<div class="card">
+
+<h2>📄 تقديم جديد</h2>
+
+<p>👤 الاسم: ${app.name}</p>
+
+<p>🎂 العمر: ${app.age}</p>
+
+<p>💬 Discord: ${app.discord}</p>
+
+<p>📌 النوع: ${app.type}</p>
+
+<p>📝 السبب: ${app.reason}</p>
+
+<p>⭐ الخبرة: ${app.experience}</p>
+
+<p>❓ لماذا نختارك: ${app.why}</p>
+
+</div>
+
+`;
+
+
+});
+
+
+
+}
+
+catch(error){
+
+
+result.innerHTML =
+"<div class='card'>❌ حصل خطأ في تحميل التقديمات</div>";
+
+console.log(error);
+
+
+}
+
+
+}
+
+
+
 loadApplications();
+
+
 </script>
+
+
+</body>
+
+</html>

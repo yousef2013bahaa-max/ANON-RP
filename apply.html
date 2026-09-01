@@ -1,246 +1,238 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>التقديم | ANON-RP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>التقديم | ANON-RP</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #0b0b0f;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+<style>
 
-    .container {
-      width: 100%;
-      max-width: 600px;
-      background: #15151c;
-      border: 1px solid #292934;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.5);
-    }
+body{
+background:#0b0b0f;
+color:white;
+font-family:Arial;
+padding:20px;
+}
 
-    h1 {
-      text-align: center;
-      margin-top: 0;
-      color: #ffffff;
-    }
+.container{
+max-width:600px;
+margin:auto;
+background:#15151c;
+padding:25px;
+border-radius:18px;
+}
 
-    .subtitle {
-      text-align: center;
-      color: #999;
-      margin-bottom: 25px;
-    }
+h1{
+text-align:center;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
+input,select,textarea,button{
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 13px;
-      margin-bottom: 18px;
-      border: 1px solid #33333f;
-      border-radius: 10px;
-      background: #0e0e13;
-      color: white;
-      outline: none;
-      font-size: 15px;
-    }
+width:100%;
+padding:13px;
+margin:8px 0 15px;
+border-radius:10px;
+border:1px solid #333;
+background:#0e0e13;
+color:white;
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #ffffff;
-    }
+}
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
+button{
 
-    button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      background: white;
-      color: black;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+background:white;
+color:black;
+font-weight:bold;
+font-size:16px;
 
-    button:hover {
-      opacity: 0.9;
-    }
+}
 
-    .back {
-      display: block;
-      text-align: center;
-      margin-top: 18px;
-      color: #aaa;
-      text-decoration: none;
-    }
+.success{
 
-    .back:hover {
-      color: white;
-    }
+display:none;
+text-align:center;
+color:#7dff91;
+margin-top:20px;
 
-    .success {
-      display: none;
-      text-align: center;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 12px;
-      background: #102415;
-      border: 1px solid #245b30;
-      color: #7dff91;
-    }
-  </style>
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-  <div class="container">
 
-    <h1>📋 التقديم في ANON-RP</h1>
+<div class="container">
 
-    <p class="subtitle">
-      املأ البيانات التالية للتقديم
-    </p>
 
-    <form id="applyForm">
+<h1>📋 التقديم في ANON-RP</h1>
 
-      <label>الاسم داخل السيرفر</label>
-      <input
-        type="text"
-        id="name"
-        placeholder="اكتب اسمك"
-        required
-      >
 
-      <label>العمر</label>
-      <input
-        type="number"
-        id="age"
-        placeholder="اكتب عمرك"
-        min="10"
-        max="100"
-        required
-      >
+<form id="applyForm">
 
-      <label>Discord ID</label>
-      <input
-        type="text"
-        id="discord"
-        placeholder="اكتب Discord ID"
-        required
-      >
 
-      <label>نوع التقديم</label>
+<input id="name" placeholder="الاسم داخل السيرفر" required>
 
-      <select id="type" required>
-        <option value="">اختر نوع التقديم</option>
-        <option value="إدارة">إدارة</option>
-        <option value="مراقب">مراقب</option>
-        <option value="ستاف">ستاف</option>
-        <option value="عصابة">عصابة</option>
-        <option value="أخرى">أخرى</option>
-      </select>
 
-      <label>لماذا تريد الانضمام إلى فريق ANON-RP؟</label>
+<input id="age" type="number" placeholder="العمر" required>
 
-      <textarea
-        id="reason"
-        placeholder="اكتب إجابتك هنا..."
-        required
-      ></textarea>
 
-      <label>خبراتك</label>
+<input id="discord" placeholder="Discord ID" required>
 
-      <textarea
-        id="experience"
-        placeholder="اكتب خبراتك السابقة..."
-        required
-      ></textarea>
 
-      <label>لماذا نختارك أنت؟</label>
+<select id="type" required>
 
-      <textarea
-        id="why"
-        placeholder="اكتب إجابتك..."
-        required
-      ></textarea>
+<option value="">نوع التقديم</option>
 
-      <button type="submit">
-        🚀 إرسال التقديم
-      </button>
+<option>إدارة</option>
 
-    </form>
+<option>مراقب</option>
 
-    <div class="success" id="success">
-      ✅ تم إرسال التقديم بنجاح!
-      <br>
-      سيتم مراجعة طلبك من الإدارة.
-    </div>
+<option>ستاف</option>
 
-    <a href="profile.html" class="back">
-      ← العودة إلى حسابي
-    </a>
+<option>عصابة</option>
 
-  </div>
+<option>أخرى</option>
 
-  <script>
+</select>
 
-    document.getElementById("applyForm").addEventListener("submit", function(e) {
 
-      e.preventDefault();
+<textarea id="reason" placeholder="سبب التقديم" required></textarea>
 
-      const application = {
-        name: document.getElementById("name").value,
-        age: document.getElementById("age").value,
-        discord: document.getElementById("discord").value,
-        type: document.getElementById("type").value,
-        reason: document.getElementById("reason").value,
-        experience: document.getElementById("experience").value,
-        why: document.getElementById("why").value,
-        date: new Date().toLocaleString("ar-EG")
-      };
 
-      let applications =
-        JSON.parse(localStorage.getItem("anon_rp_applications")) || [];
+<textarea id="experience" placeholder="الخبرات" required></textarea>
 
-      applications.push(application);
 
-      localStorage.setItem(
-        "anon_rp_applications",
-        JSON.stringify(applications)
-      );
+<textarea id="why" placeholder="لماذا نختارك؟" required></textarea>
 
-      document.getElementById("applyForm").style.display = "none";
-      document.getElementById("success").style.display = "block";
 
-    });
+<button type="submit">
+🚀 إرسال التقديم
+</button>
 
-  </script>
+
+</form>
+
+
+<div class="success" id="success">
+
+✅ تم إرسال التقديم بنجاح!
+<br>
+سيتم مراجعته من الإدارة.
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+const SUPABASE_URL =
+"https://zqpemyoukxseyhgnrzja.supabase.co";
+
+
+const SUPABASE_KEY =
+"sb_publishable_xfZeYMI33hXTvNy4Z3JPGQ_BMH4ufF2";
+
+
+
+document.getElementById("applyForm")
+.addEventListener("submit", async function(e){
+
+
+e.preventDefault();
+
+
+
+let data={
+
+
+name:document.getElementById("name").value,
+
+age:Number(document.getElementById("age").value),
+
+discord:document.getElementById("discord").value,
+
+type:document.getElementById("type").value,
+
+reason:document.getElementById("reason").value,
+
+experience:document.getElementById("experience").value,
+
+why:document.getElementById("why").value
+
+
+};
+
+
+
+try{
+
+
+let res = await fetch(
+
+SUPABASE_URL+"/rest/v1/applications",
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json",
+
+"apikey":SUPABASE_KEY,
+
+"Authorization":"Bearer "+SUPABASE_KEY
+
+},
+
+body:JSON.stringify(data)
+
+}
+
+);
+
+
+
+if(!res.ok){
+
+throw new Error();
+
+}
+
+
+
+document.getElementById("applyForm").style.display="none";
+
+document.getElementById("success").style.display="block";
+
+
+}
+
+catch(e){
+
+alert("❌ فشل إرسال التقديم");
+
+console.log(e);
+
+}
+
+
+
+});
+
+
+</script>
+
 
 </body>
+
 </html>

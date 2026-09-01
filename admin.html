@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>إدارة ANON-RP</title>
+
+<style>
+
+body{
+background:#0b0b0f;
+color:white;
+font-family:Arial;
+padding:20px;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+.card{
+background:#15151c;
+padding:20px;
+margin:15px 0;
+border-radius:15px;
+}
+
+button{
+padding:10px 15px;
+border:0;
+border-radius:10px;
+margin:5px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.accept{
+background:#38d66b;
+}
+
+.reject{
+background:#ff4d4d;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>👑 إدارة ANON-RP</h1>
+
+<div id="result">
+جاري تحميل التقديمات...
+</div>
+
+</div>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://zqpemyoukxseyhgnrzja.supabase.co";
+
+
+const SUPABASE_KEY =
+"sb_publishable_xfZeYMI33hXTvNy4Z3JPGQ_BMH4ufF2";
+
+
+
+async function load(){
+
+
+let res = await fetch(
+
+SUPABASE_URL+"/rest/v1/applications?select=*",
+
+{
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":"Bearer "+SUPABASE_KEY
+}
+}
+
+);
+
+
+let data = await res.json();
+
+
+let box=document.getElementById("result");
+
+
+box.innerHTML="";
+
+
+data.forEach(app=>{
+
+
+box.innerHTML += `
+
+<div class="card">
+
+<h2>📄 تقديم</h2>
+
+<p>الاسم: ${app.name}</p>
+
+<p>العمر: ${app.age}</p>
+
+<p>Discord: ${app.discord}</p>
+
+<p>النوع: ${app.type}</p>
+
+<p>الحالة: ${app.status || "pending"}</p>
+
+
+<button class="accept"
+onclick="changeStatus('${app.id}','accepted')">
+
+✅ قبول
+
+</button>
+
+
+<button class="reject"
+onclick="changeStatus('${app.id}','rejected')">
+
+❌ رفض
+
+</button>
+
+
+</div>
+
+`;
+
+});
+
+
+}
+
+
+
+async function changeStatus(id,status){
+
+
+await fetch(
+
+SUPABASE_URL+"/rest/v1/applications?id=eq."+id,
+
+{
+
+method:"PATCH",
+
+headers:{
+
+"apikey":SUPABASE_KEY,
+
+"Authorization":"Bearer "+SUPABASE_KEY,
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+status:status
+
+})
+
+}
+
+);
+
+
+alert("تم تحديث الحالة ✅");
+
+load();
+
+
+}
+
+
+
+load();
+
+
+</script>
+
+</body>
+
+</html>

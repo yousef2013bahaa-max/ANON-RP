@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,204 +8,212 @@
 <title>حسابي | ANON RP</title>
 
 <style>
+
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-    font-family:Arial,Tahoma,sans-serif;
-    background:#07080c;
-    color:#fff;
-    min-height:100vh;
+font-family:Arial,Tahoma,sans-serif;
+background:#07080c;
+color:#fff;
+min-height:100vh;
+line-height:1.7;
 }
 
-/* الشريط العلوي */
 header{
-    background:#0d0e13;
-    border-bottom:1px solid #2b1118;
-    padding:15px 20px;
+background:#0d0e13;
+border-bottom:1px solid #2b1118;
+padding:15px 20px;
 }
 
 .nav{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 .logo{
-    font-size:27px;
-    font-weight:900;
+font-size:27px;
+font-weight:900;
 }
 
 .logo span{
-    color:#ef233c;
+color:#ef233c;
 }
 
 .home{
-    color:#fff;
-    text-decoration:none;
-    background:#22242c;
-    border:1px solid #444;
-    padding:10px 16px;
-    border-radius:10px;
-    font-weight:bold;
+background:#22242c;
+border:1px solid #444;
+color:#fff;
+padding:10px 16px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
 }
 
-/* الصفحة */
 .container{
-    width:90%;
-    max-width:700px;
-    margin:50px auto;
+width:92%;
+max-width:700px;
+margin:45px auto;
 }
 
 .title{
-    text-align:center;
-    margin-bottom:30px;
+text-align:center;
+margin-bottom:30px;
 }
 
 .title h1{
-    font-size:38px;
+font-size:38px;
 }
 
 .title h1 span{
-    color:#ef233c;
+color:#ef233c;
 }
 
 .title p{
-    color:#888;
-    margin-top:8px;
+color:#888;
+margin-top:5px;
 }
 
-/* بطاقة الحساب */
 .profile-card{
-    background:#111217;
-    border:1px solid #3a151d;
-    border-radius:20px;
-    padding:30px;
+background:#111217;
+border:1px solid #3a151d;
+border-radius:20px;
+padding:30px;
 }
 
 .avatar{
-    width:90px;
-    height:90px;
-    margin:0 auto 20px;
-    border-radius:50%;
-    background:#ef233c;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:40px;
-    font-weight:bold;
-}
-
-.info{
-    margin-top:20px;
+width:90px;
+height:90px;
+margin:0 auto 20px;
+border-radius:50%;
+background:#ef233c;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
 }
 
 .info-box{
-    background:#08090d;
-    border:1px solid #292a30;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:12px;
+background:#08090d;
+border:1px solid #292a30;
+border-radius:12px;
+padding:15px;
+margin-bottom:14px;
 }
 
 .info-label{
-    display:block;
-    color:#888;
-    font-size:14px;
-    margin-bottom:5px;
+display:block;
+color:#888;
+font-size:14px;
+margin-bottom:5px;
 }
 
 .info-value{
-    font-size:17px;
-    font-weight:bold;
-    word-break:break-word;
+font-size:17px;
+font-weight:bold;
+word-break:break-word;
 }
 
-/* الأزرار */
+input{
+width:100%;
+padding:13px;
+margin-top:5px;
+background:#08090d;
+border:1px solid #333;
+border-radius:10px;
+color:#fff;
+font-size:16px;
+outline:none;
+}
+
+input:focus{
+border-color:#ef233c;
+}
+
 .actions{
-    margin-top:25px;
-    display:flex;
-    gap:10px;
+margin-top:25px;
+display:flex;
+gap:10px;
 }
 
 button,
 .action-link{
-    flex:1;
-    display:block;
-    padding:14px;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:bold;
-    text-align:center;
-    cursor:pointer;
-    text-decoration:none;
+flex:1;
+display:block;
+padding:14px;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+text-align:center;
+cursor:pointer;
+text-decoration:none;
+}
+
+.save{
+background:#ef233c;
+color:#fff;
+border:0;
 }
 
 .logout{
-    background:#ef233c;
-    color:#fff;
-    border:0;
+background:#22242c;
+color:#fff;
+border:1px solid #444;
 }
 
-.home-btn{
-    background:#22242c;
-    color:#fff;
-    border:1px solid #444;
-}
-
-/* رسالة */
-#message{
-    text-align:center;
-    margin-top:15px;
-    color:#ef233c;
+.message{
+text-align:center;
+margin-top:15px;
+font-weight:bold;
 }
 
 footer{
-    margin-top:70px;
-    padding:30px 20px;
-    text-align:center;
-    color:#777;
-    border-top:1px solid #222;
+margin-top:70px;
+padding:30px 20px;
+text-align:center;
+color:#777;
+border-top:1px solid #222;
 }
 
-/* الموبايل */
 @media(max-width:600px){
 
-    .nav{
-        gap:10px;
-    }
+.nav{
+gap:10px;
+}
 
-    .logo{
-        font-size:23px;
-    }
+.logo{
+font-size:23px;
+}
 
-    .home{
-        padding:8px 12px;
-        font-size:14px;
-    }
+.home{
+font-size:14px;
+padding:8px 12px;
+}
 
-    .container{
-        margin-top:35px;
-    }
+.container{
+margin-top:30px;
+}
 
-    .title h1{
-        font-size:30px;
-    }
+.title h1{
+font-size:30px;
+}
 
-    .profile-card{
-        padding:20px;
-    }
+.profile-card{
+padding:20px;
+}
 
-    .actions{
-        flex-direction:column;
-    }
+.actions{
+flex-direction:column;
+}
 
 }
+
 </style>
 </head>
 
@@ -236,7 +245,7 @@ ANON <span>RP</span>
 </h1>
 
 <p>
-مرحبًا بك في حسابك داخل ANON RP
+إدارة بيانات حسابك في ANON RP
 </p>
 
 </div>
@@ -249,17 +258,17 @@ ANON <span>RP</span>
 </div>
 
 
-<div class="info">
-
 <div class="info-box">
 
 <span class="info-label">
 اسم المستخدم
 </span>
 
-<div class="info-value" id="username">
-جارٍ التحميل...
-</div>
+<input
+type="text"
+id="username"
+placeholder="اسم المستخدم"
+>
 
 </div>
 
@@ -270,9 +279,11 @@ ANON <span>RP</span>
 Discord
 </span>
 
-<div class="info-value" id="discord">
-جارٍ التحميل...
-</div>
+<input
+type="text"
+id="discord"
+placeholder="Discord"
+>
 
 </div>
 
@@ -283,9 +294,11 @@ Discord
 البريد الإلكتروني
 </span>
 
-<div class="info-value" id="email">
-جارٍ التحميل...
-</div>
+<input
+type="email"
+id="email"
+placeholder="البريد الإلكتروني"
+>
 
 </div>
 
@@ -298,10 +311,8 @@ Discord
 
 <div class="info-value">
 <span style="color:#42d66b;">
-● متصل
+● مسجل الدخول
 </span>
-</div>
-
 </div>
 
 </div>
@@ -309,9 +320,9 @@ Discord
 
 <div class="actions">
 
-<a class="action-link home-btn" href="index.html">
-الرئيسية
-</a>
+<button class="save" id="saveBtn">
+حفظ التعديلات
+</button>
 
 <button class="logout" id="logoutBtn">
 تسجيل الخروج
@@ -319,7 +330,8 @@ Discord
 
 </div>
 
-<div id="message"></div>
+
+<div class="message" id="message"></div>
 
 </div>
 
@@ -337,19 +349,16 @@ Discord
 
 <script>
 
-/* التأكد أن المستخدم مسجل دخول */
+/* التأكد من تسجيل الدخول */
 
-const loggedIn =
-localStorage.getItem("anon_logged_in");
+if(localStorage.getItem("anon_logged_in") !== "true"){
 
-if(loggedIn !== "true"){
-
-    window.location.href = "login.html";
+window.location.href="login.html";
 
 }
 
 
-/* قراءة بيانات الحساب */
+/* قراءة الحساب */
 
 let account = null;
 
@@ -359,65 +368,148 @@ localStorage.getItem("anon_account");
 
 if(savedAccount){
 
-    try{
+try{
 
-        account = JSON.parse(savedAccount);
+account = JSON.parse(savedAccount);
 
-    }catch(error){
+}catch(error){
 
-        account = null;
+account = null;
 
-    }
+}
 
 }
 
 
-/* لو البيانات محفوظة بالطريقة القديمة */
+/* دعم الحسابات القديمة */
 
 if(!account){
 
-    account = {
+account = {
 
-        username:
-        localStorage.getItem("anon_username") || "",
+username:
+localStorage.getItem("anon_username") || "",
 
-        discord:
-        localStorage.getItem("anon_discord") || "",
+discord:
+localStorage.getItem("anon_discord") || "",
 
-        email:
-        localStorage.getItem("anon_email") || "",
+email:
+localStorage.getItem("anon_email") || "",
 
-        password:
-        localStorage.getItem("anon_password") || ""
+password:
+localStorage.getItem("anon_password") || ""
 
-    };
+};
 
 }
 
 
 /* عرض البيانات */
 
-document.getElementById("username").textContent =
-account.username || "غير موجود";
+document.getElementById("username").value =
+account.username || "";
 
-document.getElementById("discord").textContent =
-account.discord || "غير موجود";
+document.getElementById("discord").value =
+account.discord || "";
 
-document.getElementById("email").textContent =
-account.email || "غير موجود";
+document.getElementById("email").value =
+account.email || "";
+
+
+/* حفظ التعديلات */
+
+document.getElementById("saveBtn").addEventListener("click",function(){
+
+const username =
+document.getElementById("username").value.trim();
+
+const discord =
+document.getElementById("discord").value.trim();
+
+const email =
+document.getElementById("email").value.trim();
+
+const message =
+document.getElementById("message");
+
+
+if(username.length < 3){
+
+message.textContent =
+"اسم المستخدم يجب أن يكون 3 أحرف على الأقل ❌";
+
+return;
+
+}
+
+
+if(!email){
+
+message.textContent =
+"اكتب البريد الإلكتروني ❌";
+
+return;
+
+}
+
+
+/* تحديث الحساب */
+
+account.username = username;
+account.discord = discord;
+account.email = email;
+
+
+/* حفظ الحساب */
+
+localStorage.setItem(
+"anon_account",
+JSON.stringify(account)
+);
+
+localStorage.setItem(
+"anon_username",
+username
+);
+
+localStorage.setItem(
+"anon_discord",
+discord
+);
+
+localStorage.setItem(
+"anon_email",
+email
+);
+
+
+message.style.color="#42d66b";
+
+message.textContent =
+"تم حفظ التعديلات بنجاح ✅";
+
+
+setTimeout(function(){
+
+message.textContent="";
+
+},2500);
+
+});
 
 
 /* تسجيل الخروج */
 
 document.getElementById("logoutBtn").addEventListener("click",function(){
 
-    localStorage.removeItem("anon_logged_in");
+localStorage.removeItem("anon_logged_in");
 
-    window.location.href = "index.html";
+window.location.href="index.html";
 
 });
 
 </script>
 
 </body>
+
 </html>

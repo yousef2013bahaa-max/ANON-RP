@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
@@ -23,111 +24,74 @@ margin:auto;
 
 .card{
 background:#15151c;
-padding:20px;
-border-radius:15px;
-margin:15px 0;
+padding:25px;
+border-radius:20px;
+margin-top:20px;
 }
 
 h1{
-color:#00eaff;
 text-align:center;
+color:#00eaff;
 }
 
-.msg{
+.box{
 background:#20202b;
-padding:15px;
-border-radius:10px;
-margin:10px 0;
+padding:20px;
+border-radius:15px;
+margin-top:15px;
+cursor:pointer;
+font-size:22px;
+}
+
+.box:hover{
+background:#29293a;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 <div class="container">
 
-<h1>👤 حسابي ANON-RP</h1>
+
+<h1>
+👤 حسابي ANON-RP
+</h1>
+
 
 <div class="card">
 
-<h2>📩 الرسائل</h2>
 
-<div id="messages">
-جاري تحميل الرسائل...
-</div>
+<div class="box" onclick="openMessages()">
 
-</div>
+📩 الرسائل
 
 </div>
+
+
+</div>
+
+
+</div>
+
 
 
 <script>
 
-const SUPABASE_URL =
-"https://zqpemyoukxseyhgnrzja.supabase.co";
 
+function openMessages(){
 
-const SUPABASE_KEY =
-"sb_publishable_xfZeYMI33hXTvNy4Z3JPGQ_BMH4ufF2";
-
-
-
-async function loadMessages(){
-
-
-let res = await fetch(
-
-SUPABASE_URL+"/rest/v1/massages?select=*",
-
-{
-
-headers:{
-
-"apikey":SUPABASE_KEY,
-
-"Authorization":"Bearer "+SUPABASE_KEY
+window.location.href="messages.html";
 
 }
-
-}
-
-);
-
-
-let data = await res.json();
-
-
-let box=document.getElementById("messages");
-
-box.innerHTML="";
-
-
-data.forEach(msg=>{
-
-
-box.innerHTML += `
-
-<div class="msg">
-
-${msg.message}
-
-</div>
-
-`;
-
-});
-
-
-}
-
-
-loadMessages();
 
 
 </script>
 
 
 </body>
+
 </html>

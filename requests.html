@@ -178,10 +178,13 @@ box.innerHTML += `
 
 <p>
 الحالة:
-<span class="${status}">
-${status}
-</span>
-</p>
+<button class="accept" onclick="changeStatus(${app.id},'accepted')">
+✅ قبول
+</button>
+
+<button class="reject" onclick="changeStatus(${app.id},'rejected')">
+❌ رفض
+</button>
 
 
 </div>

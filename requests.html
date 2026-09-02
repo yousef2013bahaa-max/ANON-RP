@@ -25,8 +25,8 @@ margin:auto;
 .card{
 background:#15151c;
 padding:20px;
-border-radius:20px;
-margin-top:20px;
+border-radius:15px;
+margin:15px 0;
 }
 
 h1{
@@ -34,32 +34,32 @@ color:#00eaff;
 text-align:center;
 }
 
-.status{
-background:#20202b;
-padding:15px;
-border-radius:12px;
-margin-top:10px;
-}
-
-.pending{
-color:#ffd700;
-}
-
-.accepted{
-color:#38d66b;
-}
-
-.rejected{
-color:#ff4d4d;
-}
-
 button{
-background:#00eaff;
+padding:10px 15px;
 border:0;
-padding:12px;
 border-radius:10px;
 cursor:pointer;
+margin:5px;
 font-weight:bold;
+}
+
+.accept{
+background:#38d66b;
+}
+
+.reject{
+background:#ff4d4d;
+color:white;
+}
+
+.back{
+background:#00eaff;
+}
+
+.status{
+padding:10px;
+background:#20202b;
+border-radius:10px;
 }
 
 </style>
@@ -76,28 +76,14 @@ font-weight:bold;
 <h1>📋 طلبات التقديم</h1>
 
 
-<div class="card">
-
-
 <div id="requests">
 جاري تحميل الطلبات...
 </div>
 
 
-<br>
-
-<button onclick="goHome()">
-🏠 الرئيسية
+<button class="back" onclick="back()">
+⬅️ رجوع
 </button>
-
-<script>
-function goHome(){
-    window.location.href="index.html";
-}
-</script>
-
-
-</div>
 
 
 </div>
@@ -138,52 +124,54 @@ headers:{
 );
 
 
-let data = await res.json();
 
-console.log(data);
-    
+let data = await res.json();
 
 
 let box=document.getElementById("requests");
 
-
 box.innerHTML="";
-
-
-if(data.length === 0){
-
-box.innerHTML="لا يوجد طلبات حاليا 📭";
-
-return;
-
-}
-
 
 
 data.forEach(app=>{
 
 
-let status = app.status || "pending";
-
-
 box.innerHTML += `
 
-<div class="status">
+<div class="card">
 
-<p>📄 الاسم: ${app.name}</p>
+<h2>📄 طلب تقديم</h2>
+
+<p>الاسم: ${app.name}</p>
 
 <p>العمر: ${app.age}</p>
 
+<p>Discord: ${app.discord}</p>
+
 <p>النوع: ${app.type}</p>
 
-<p>
+
+<div class="status">
+
 الحالة:
-<button class="accept" onclick="changeStatus(${app.id},'accepted')">
+${app.status || "pending"}
+
+</div>
+
+
+<button class="accept"
+onclick="changeStatus(${app.id},'accepted')">
+
 ✅ قبول
+
 </button>
 
-<button class="reject" onclick="changeStatus(${app.id},'rejected')">
+
+<button class="reject"
+onclick="changeStatus(${app.id},'rejected')">
+
 ❌ رفض
+
 </button>
 
 
@@ -191,37 +179,66 @@ box.innerHTML += `
 
 `;
 
-
 });
 
 
 }
+
+
+
+
 async function changeStatus(id,status){
 
-await fetch(
+
+let res = await fetch(
+
 SUPABASE_URL+"/rest/v1/applications?id=eq."+id,
+
 {
+
 method:"PATCH",
+
 headers:{
+
 "apikey":SUPABASE_KEY,
+
 "Authorization":"Bearer "+SUPABASE_KEY,
-"Content-Type":"application/json"
+
+"Content-Type":"application/json",
+
+"Prefer":"return=representation"
+
 },
+
 body:JSON.stringify({
+
 status:status
+
 })
+
 }
+
 );
 
-alert("تم التحديث ✅");
+
+if(res.ok){
+
+alert("تم تحديث الحالة ✅");
 
 loadRequests();
 
+}else{
+
+alert("حدث خطأ ❌");
+
+}
+
+
 }
 
 
 
-    
+
 
 function back(){
 

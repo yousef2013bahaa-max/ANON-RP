@@ -1,89 +1,133 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>حسابي | ANON-RP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>ANON-RP | حسابي</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #0b0b0f;
-      color: white;
-      padding: 20px;
-    }
+<style>
 
-    .container {
-      width: 100%;
-      max-width: 600px;
-      margin: 50px auto;
-      background: #15151c;
-      border: 1px solid #292934;
-      border-radius: 20px;
-      padding: 30px;
-    }
+body{
+background:#0b0b0f;
+color:white;
+font-family:Arial;
+padding:20px;
+}
 
-    h1 {
-      text-align: center;
-      margin: 0 0 30px;
-    }
+.container{
+max-width:700px;
+margin:auto;
+}
 
-    .button {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      margin: 15px 0;
-      border-radius: 12px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      text-align: center;
-      font-size: 17px;
-      font-weight: bold;
-    }
+.card{
+background:#15151c;
+padding:20px;
+border-radius:15px;
+margin:15px 0;
+}
 
-    .button:hover {
-      opacity: 0.85;
-    }
+h1{
+color:#00eaff;
+text-align:center;
+}
 
-    .back {
-      display: block;
-      text-align: center;
-      margin-top: 25px;
-      color: #aaa;
-      text-decoration: none;
-    }
-  </style>
+.msg{
+background:#20202b;
+padding:15px;
+border-radius:10px;
+margin:10px 0;
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>👤 حسابي</h1>
+<h1>👤 حسابي ANON-RP</h1>
 
-    <!-- فتح نموذج التقديم -->
-    <a class="button" href="./apply.html">
-      📋 التقديم في ANON-RP
-    </a>
+<div class="card">
 
-    <a href="applications.html" class="button">
-  👀 عرض التقديمات
-    </a>
+<h2>📩 الرسائل</h2>
 
-    <!-- العودة للرئيسية -->
-    <a class="back" href="./index.html">
-      ← العودة للرئيسية
-    </a>
+<div id="messages">
+جاري تحميل الرسائل...
+</div>
 
-  </div>
+</div>
+
+</div>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://zqpemyoukxseyhgnrzja.supabase.co";
+
+
+const SUPABASE_KEY =
+"sb_publishable_xfZeYMI33hXTvNy4Z3JPGQ_BMH4ufF2";
+
+
+
+async function loadMessages(){
+
+
+let res = await fetch(
+
+SUPABASE_URL+"/rest/v1/massages?select=*",
+
+{
+
+headers:{
+
+"apikey":SUPABASE_KEY,
+
+"Authorization":"Bearer "+SUPABASE_KEY
+
+}
+
+}
+
+);
+
+
+let data = await res.json();
+
+
+let box=document.getElementById("messages");
+
+box.innerHTML="";
+
+
+data.forEach(msg=>{
+
+
+box.innerHTML += `
+
+<div class="msg">
+
+${msg.message}
+
+</div>
+
+`;
+
+});
+
+
+}
+
+
+loadMessages();
+
+
+</script>
+
 
 </body>
 </html>

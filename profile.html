@@ -24,27 +24,27 @@ margin:auto;
 
 .card{
 background:#15151c;
-padding:25px;
+padding:20px;
 border-radius:20px;
-margin-top:20px;
-}
-
-h1{
-text-align:center;
-color:#00eaff;
+margin-top:15px;
 }
 
 .box{
 background:#20202b;
 padding:20px;
 border-radius:15px;
-margin-top:15px;
+margin:10px 0;
 cursor:pointer;
-font-size:22px;
+font-size:20px;
 }
 
 .box:hover{
 background:#29293a;
+}
+
+h1{
+text-align:center;
+color:#00eaff;
 }
 
 </style>
@@ -54,21 +54,28 @@ background:#29293a;
 
 <body>
 
+
 <div class="container">
 
 
-<h1>
-👤 حسابي ANON-RP
-</h1>
+<h1>👤 حسابي ANON-RP</h1>
 
 
 <div class="card">
 
 
-<div class="box" onclick="openMessages()">
+<div class="box" onclick="go('apply.html')">
+📄 تقديم
+</div>
 
+
+<div class="box" onclick="go('requests.html')">
+📋 طلبات التقديم
+</div>
+
+
+<div class="box" onclick="go('messages.html')">
 📩 الرسائل
-
 </div>
 
 
@@ -81,13 +88,11 @@ background:#29293a;
 
 <script>
 
+function go(page){
 
-function openMessages(){
-
-window.location.href="messages.html";
+window.location.href=page;
 
 }
-
 
 </script>
 
